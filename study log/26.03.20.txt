@@ -1,0 +1,24 @@
+git congif --global user.(name,email) "" > name은 닉네임 email은 이메일로 커밋 작성시의 기록할 유저의 정보 변경
+
+git init > 이 폴더에 위임
+
+git add > 이 폴더에서 작업한 것들 임시저장(.은 변경점 전체, 파일명은 그 파일만 변경)
+
+git commit > 이 폴더에서 작업한 것들을 저장 및 업로드
+
+git log > 이 폴더에 커밋 한 것들 기록을 확인
+
+git reset > 커밋을 취소
+>>(--soft 는 임시저장 상태로 복귀
+    (--mixed는 임시 저장도 취소하고 작업 공간에는 남겨둔다
+    (--hard는 임시 저장도 취소하면서 작업 공간에서도 삭제
+    (또한 HEAD는 최신버전을 의미)
+
+github에 올리기 전에 반드시 커밋이 전부 완료 되어있는지 확인할것
+
+git remote add origin (링크)> 깃허브와 로컬 저장소를 "origin"이라는 이름으로 연결
+
+git push -u origin master > 로컬 저장소에 커밋 했던 것들을 깃허브 "마스터"에 업로드
+
+add (임시저장) > commit(로컬 저장소에 업로드) > push (원격저장소에 저장)
+
