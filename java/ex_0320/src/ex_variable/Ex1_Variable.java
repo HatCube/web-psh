@@ -25,6 +25,29 @@ public class Ex1_Variable {
 		 x = x + 1;
 		 System.out.println(x);
 		 
+		 // 대입은 필요한만큼 할 수 있다.
+		 
+		 //선언과 동시에 값을 대입할 수 있다.
+		 int y = 30;
+		 System.out.println(y);
+		 // 변수는 출력문이나 연산식에 사용되어 값을 활용할 수 있다.
+		 
+		 int hour = 3;
+		 int min = 5;
+		 //숫자 + 문자열은 문자열로 합쳐진다.
+		 //"3시간"
+		 System.out.println(hour + "시간" + min + "분");
+		 
+		 //hour에 들어있는 시간값은 총 몇분인지 구해보기
+		 int total_min = hour * 60 + min;
+		 System.out.println("총" + total_min + "분");
+		 
+		 //변수는 또 다른 변수에 대입되어 메모리 간에 값을 복사할 수 있다.
+		 
+		 int a = 4;
+		 int b = a;
+		 System.out.println("a=" + a);
+		 System.out.println("b=" + b);
 	}
 
 }
