@@ -53,4 +53,3 @@ JRE System Library
 
 1byte = 8 bit 01111111
 
-
