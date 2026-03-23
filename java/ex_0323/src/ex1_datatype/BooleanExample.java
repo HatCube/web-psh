@@ -1,0 +1,23 @@
+package ex1_datatype;
+
+public class BooleanExample {
+
+	public static void main(String[] args) {
+		
+		boolean b1 = true;
+		boolean b2 = false;
+		
+		System.out.println(b1);
+		System.out.println(b2);
+	    
+		//변수의 이름을 잘 지어야 한다.
+		boolean Ison = true;
+		//전등이 켜져 있는 상태.
+		
+		boolean IsStudent = false;
+		//학생이 아니다.
+		
+		
+		
+	}
+}
