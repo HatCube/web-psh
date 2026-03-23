@@ -17,7 +17,14 @@ public class BooleanExample {
 		boolean IsStudent = false;
 		//학생이 아니다.
 		
+		//boolean 변수를 다른 변수에 대입할 수 있다.
+		boolean copy = Ison;
+		System.out.println("복사값 : " + copy);
 		
+		//boolean은 true / false 값만 올 수 있다.
+		Ison = false;
+		System.out.println("전등 상태 전환 : " + Ison);
 		
+	
 	}
 }
