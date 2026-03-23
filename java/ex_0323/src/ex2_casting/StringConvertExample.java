@@ -13,9 +13,15 @@ public class StringConvertExample {
 		System.out.println(value2);
 		System.out.println(value3);
 		
+		//기본타입 > 문자열
+		//String.ValueOf(데이터)
+		String str1 = String.valueOf(10);
+		String str2 = String.valueOf(3.14);
+		String str3 = String.valueOf("true");
 		
-		
-		
+		System.out.println(str1);
+		System.out.println(str2);
+		System.out.println(str3);
 		
 		
 		
