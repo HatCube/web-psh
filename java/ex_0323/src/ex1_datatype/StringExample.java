@@ -40,6 +40,21 @@ public class StringExample {
 		// \\ : 백슬래시 출력
 		
 		
+		//JAVA 13 부터는 텍스트블록 문법을 제공함.
+		//println을 쓰거나 \n을 쓸 필요 없이
+		//작성된 그대로의 문자열을 저장한다.
+		String str = """ 
+		영역
+		사이에 
+		작성을 한다.
+		""";
+		
+		System.out.println(str);
+		
+		
+		
+		
+		
 	}
 
 }
