@@ -30,6 +30,10 @@ public class LogicOperatorExample {
 		System.out.println(y);
 		
 		
+		//비트 논리 연산자
+		//기능은 논리연산자와 같지만 bit단위(2진수)의 연산만 가능하다.
+		//피연산자가 1,0이라는 것과 산출 결과가 1,0이라는 점이 특징이다.
+		//1은 true , 0은 false라고 생각하면 논리연산자와 차이는 없다.
 		
 		
 		
