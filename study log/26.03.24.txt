@@ -1,0 +1,16 @@
+자료형의 크기
+byte 1byte
+short 2byte
+int 4byte
+long 8byte
+float 4byte
+double 8byte
+boolean 1bit
+char 2byte
+
+형변환(타입변환)
+자동형변환(묵시적형변환)
+작은 자료형에서 큰 자료형으로 바꿀때
+
+
+강제형변환(명시적형변환)
