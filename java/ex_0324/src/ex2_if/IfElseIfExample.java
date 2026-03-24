@@ -9,6 +9,7 @@ public class IfElseIfExample {
 		//79 ~ 70 = C
 		//69 ~ 60 = D
 		//59 ~ = f
+		
 		if(score > 100) {
 			System.out.println("기준치를 초과하였습니다. 다시 입력하세요.");
 		}else if(score >=90) {
