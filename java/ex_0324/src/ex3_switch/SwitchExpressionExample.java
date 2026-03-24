@@ -1,5 +1,7 @@
 package ex3_switch;
 
+import java.util.Scanner;
+
 public class SwitchExpressionExample {
 
 	public static void main(String[] args) {
@@ -73,25 +75,56 @@ public class SwitchExpressionExample {
 		//2 > 28
 		//4 > 30
 		
-		int month = 4;
-		switch (month) {
-		case 1:
-			System.out.println("1월은 31일까지 있습니다.");
+		int month = 3;
+		String result3 = switch (month){
+		case 1,3,5,7,8,10,12 -> month + "월은 31일까지 있습니다.";
+		case 4,6,9,11 -> month + "월은 30일까지 있습니다.";
+		case 2 -> month + "월은 28일까지 있습니다.";
+		default -> "다시 입력해 주세요";
+		};
+		System.out.println(result3);
+		
+		//계산기 만들기
+		// 두개의 정수형 변수를 키보드에서 입력 받는다.
+		//연산자 기호를 담아줄 문자열 변수를 만든다.
+		//switch 문을 이용하여 정수의 연산을 수행하느 코드 작성
+		//10
+		//7
+		//*
+		// 10 * 7 = 70
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("계산할 첫 수 :");
+		int num1 = sc.nextInt();
+		
+		System.out.println("계산할 두번째 수 :");
+		int num2 = sc.nextInt();
+		
+		System.out.println("사용할 부호");
+		String op = sc.next();
+		
+		switch (op) {
+		case "+" :
+			System.out.println(num1 + num2);
 			break;
-		case 2:
-			System.out.println("2월은 28일까지 있습니다.");
+			
+		case "-" :
+			System.out.println(num1 - num2);
 			break;
-		case 4:
-			System.out.println("4월은 30일까지 있습니다.");
+			
+		case "*" : 
+			System.out.println(num1 * num2);
 			break;
-		default:
-			System.out.println("잘못된 달 입력입니다.");
+			
+		case "/" :
+			System.out.println(num1 / num2);
+			break;
+			
+		default :
+			System.out.println("잘못된 입력입니다.");	
+			break;
 		}
-		
-		
-		
-		
-		
 		
 		
 		
