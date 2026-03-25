@@ -41,3 +41,4 @@ break
 반복문 안에서 break를 만나면 그 즉시 반복문을 종료한다.
 
 continue
+반복문 안에서 continue를 만나게 되면 증감식으로 간다.
