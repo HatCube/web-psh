@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class StringExample {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 		//String
 		//문자들의 집합을 저장하는 객체 타입
 		//묵시적 객체 생성
@@ -78,26 +79,25 @@ public class StringExample {
 		
 		
 		
-		//특정 문자열을 포함하고 있는지에 대한 여부 (true,false)
-		//contains("문자")
-		
-		System.out.println(subject.contains("자바"));
-		
-		//키보드에서 알파벳을 무작위로 입력받는다.
-		//입력받은 문자열에서 소문자a가 몇개 있는지 판별하는 코드 작성
-		
-		Scanner sc = new Scanner(System.in);
-		int count = 0;
-		
-		System.out.println("문자열 입력 : ");
-		String s = sc.next();
-		
-		for(int i = 0; i < s.length(); i++) {
-			if(s.charAt(i) == 'a') {
-			count++;
-			}
-		}
-		System.out.println(count);
+//		//특정 문자열을 포함하고 있는지에 대한 여부 (true,false)
+//		//contains("문자")
+//		
+//		System.out.println(subject.contains("자바"));
+//		
+//		//키보드에서 알파벳을 무작위로 입력받는다.
+//		//입력받은 문자열에서 소문자a가 몇개 있는지 판별하는 코드 작성
+//		
+//		int count = 0;
+//		
+//		System.out.println("문자열 입력 : ");
+//		String s = sc.next();
+//		
+//		for(int i = 0; i < s.length(); i++) {
+//			if(s.charAt(i) == 'a') {
+//			count++;
+//			}
+//		}
+//		System.out.println(count);
 		
 		//문자열을 입력 받고 그 문자열을 뒤집어서 원본과 같으면
 		//"같습니다", 다르면 "다릅니다" 출력하기
@@ -105,8 +105,18 @@ public class StringExample {
 		System.out.println("원본 : ");
 		String ori = sc.next();
 		String rev = "";
+		String oricut = ori.substring(ori.length() - 1);
+		System.out.println(oricut);
 		
-		
+		//abc
+		for (int i = ori.length()-1; i >= 0 ; i--) {
+			rev += ori.charAt(i);
+		}
+		if (ori.equals(rev)) {
+			System.out.println("같습니다.");
+		}else {
+			System.out.println("다릅니다.");
+		}
 		
 		
 		
