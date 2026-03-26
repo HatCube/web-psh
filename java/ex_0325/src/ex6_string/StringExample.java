@@ -1,5 +1,6 @@
 package ex6_string;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -121,6 +122,24 @@ public class StringExample {
 		
 		
 		
+		String [] ar = new String[10];
+		int [] asc2;
+		
+		for (int i = 0; i <= 9 ; i++) {
+		System.out.println("알파벳을 기입하세요 > ");
+		ar [i] = sc.next();
+		}
+		
+		asc2 = String.join("", ar).chars().toArray();
+		System.out.print("입력한 알파벳 : ");
+		
+		for (int i = 0; i < ar.length; i++) {
+		    System.out.print(ar[i]);
+		}System.out.print("\n변환된 아스키 코드 : ");
+		
+		for (int i = 0; i <= 9 ; i++) {
+		System.out.print("[" + asc2[i] + "]");
+		}
 		
 		
 		
