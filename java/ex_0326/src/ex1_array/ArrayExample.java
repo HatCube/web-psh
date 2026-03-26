@@ -22,7 +22,25 @@ public class ArrayExample {
 		//단 1의 자리 숫자는 반드시 0이 되도록 한다.
 		//발생된 난수 money를 동전으로 바꾸면 각 동전이 몇 개 필요한지 코드로 작성하기
 		//가능한 적은 수의 동전을 사용하도록 한다.
-
+		
+		int[] coin = {500,100,50,10};
+		int money = ((int)(Math.random() * 500+1)) * 10;
+		System.out.println("잔돈 : " + money);
+		//발생된 난수를 큰 동전부터 나누기
+		for(int i = 0; i < coin.length; i++) {
+			int res = money / coin[i];
+			System.out.println(coin[i] + "원 : " + res);
+			money = money % coin[i];
+		}
+		//키보드에서 배열의 길이를 입력 받는다.
+		//입력받은 배열의 길이만큼 알파벳을 요소로 넣는다.
+		//배열의 모든 요소를 출력한다.
+		//배열의 길이 5 : ABCDE
+		//배열의 길이 10 : ABCDEFGHIJ
+		
+		//배열의 선언과 생성
+		
+		//아스키 코드 활용
 	}
 
 }
