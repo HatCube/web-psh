@@ -1,5 +1,7 @@
 package ex1_array;
 
+import java.util.Scanner;
+
 public class ArrayExample {
 
 	public static void main(String[] args) {
@@ -41,6 +43,20 @@ public class ArrayExample {
 		//배열의 선언과 생성
 		
 		//아스키 코드 활용
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("배열의 길이 : ");
+		int len = sc.nextInt();
+		
+		//길이가 len인 문자형 배열(비어있음)
+		char[] c = new char[len];
+		char ch = 'A';
+		for(int i = 0; i < c.length; i++) {
+			System.out.print(c[i] = ch++);
+		}
+		
+		
+		
 	}
 
 }
