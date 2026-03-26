@@ -53,9 +53,32 @@ public class ArrayExample {
 		char ch = 'A';
 		for(int i = 0; i < c.length; i++) {
 			System.out.print(c[i] = ch++);
+		}System.out.println("\n");
+		//로또번호 구하기
+		//1 ~ 45사이의 난수를 발생시켜 로또번호 6자리를 만드는 코드
+
+		//로또 번호를 받을 배열
+		int [] lotto = new int[6];
+		
+		//배열의 길이만큼 반복
+		outer : for (int i = 0; i <lotto.length ;) {
+			
+			//난수를 뽑아 배열에 저장
+			lotto[i] = (int)(Math.random()* 45 + 1);
+			
+			//중복이 있는지 검사
+			for (int j = 0; j < i; j++) {
+				
+				//같은게 있다면
+				if(lotto[i] == lotto[j]) {
+					
+					//다시 뽑는다.
+					continue outer;
+				}
+			}System.out.println(lotto[i]);
+			i++;
 		}
-		
-		
+
 		
 	}
 
