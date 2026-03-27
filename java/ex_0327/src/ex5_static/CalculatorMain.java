@@ -12,6 +12,7 @@ public class CalculatorMain {
 		System.out.println(Calculator.pi);
 		System.out.println(Calculator.plus(3, 4));
 		System.out.println(Calculator.minus(24, 4));
+		
 	}
 
 }
