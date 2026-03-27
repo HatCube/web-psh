@@ -18,8 +18,8 @@ public class MethodMain {
 		
 		int [] a = {1,2,3,4,5,6,7,8,9,10};
 		m.countEven(a);
-		
-		
+		int result2 = m.countChar("apple",'p');
+		System.out.println("p의 개수 : "+ result2);
 	}
 
 }

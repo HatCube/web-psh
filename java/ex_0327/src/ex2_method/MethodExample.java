@@ -60,9 +60,35 @@ public class MethodExample {
 		return 0;
 	}
 	
+	//메서드를 만드는 이유 
+	//자주사용되는 기능을 재사용 하기 위함
 	
 	
 	
+	//특정 문자 개수 세기
+	//문자열과 문자 하나를 매개 변수로 받아서
+	//문자열에서 해당 문자가 몇번 등장하는지 반환하는 countChar메서드
+	
+//	public char countChar(String x,char y){
+//		int count = 0;
+//		for(int i = 0; i < x.length(); i++) {
+//			if(x.charAt(i) == y) {
+//			count++;
+//			}
+//		}
+//		System.out.println(count);
+//		return 0;
+//	}
+	int count = 0;
+	public int countChar(String s, char ch) {
+		int count = 0;
+		for(String str : s.split("")) {
+			if(str.charAt(0) == ch) {
+				count++;
+			}
+		}
+		return count;
+	}
 	
 	
 	

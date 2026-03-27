@@ -1,0 +1,27 @@
+package ex2_method;
+
+import java.util.Scanner;
+
+public class ComputerMain {
+
+	public static void main(String[] args) {
+		Computer c = new Computer();
+		Scanner sc = new Scanner(System.in);
+		//1,2,3,4,5
+		
+		int sum = c.sum(1,2,3,4,5);
+		System.out.println("총합 : "+ sum);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	}
+
+}
