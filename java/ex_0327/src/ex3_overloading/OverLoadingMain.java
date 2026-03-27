@@ -12,7 +12,9 @@ public class OverLoadingMain {
 		System.out.println(result);
 		System.out.println(result2);
 
+		CalC c = new CalC();
 		
+		c.area(100,50);
 		
 		
 		
