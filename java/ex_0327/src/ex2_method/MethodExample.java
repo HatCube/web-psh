@@ -17,10 +17,20 @@ public class MethodExample {
 		System.out.println("메서드가 호출되었습니다");
 
 	}
-	
-	
-	
-	
+	//두개의 합을 구하는 add메서드 작성
+	//x + y = 반환
+	//두 값을 외부에서 받아서 결과를 반환
+	public int add(int x,int y) {
+		int result = x + y;
+		return result;
+	}
+	//원의 넓이를 구하는 circleArea 메서드 작성
+	//원의 넓이 3.14 * 반지름 * 반지름
+	//반지름을 외부에서 받아서 넓이를 반환
+	public double circleArea(int x) {
+		double result = 3.14 * x * x;
+		return result;
+	}
 	
 	
 	
