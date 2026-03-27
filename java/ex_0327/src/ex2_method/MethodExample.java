@@ -1,5 +1,7 @@
 package ex2_method;
 
+import java.util.Arrays;
+
 public class MethodExample {
 
 	//메서드의 구조
@@ -27,13 +29,36 @@ public class MethodExample {
 	//원의 넓이를 구하는 circleArea 메서드 작성
 	//원의 넓이 3.14 * 반지름 * 반지름
 	//반지름을 외부에서 받아서 넓이를 반환
+	
+	//1.메서드를 정의
+	//외부에서 받아야할 값이 있으면 매개변수 설정
+	//코드블럭에 기능을 정의
+	//연산 결과를 보내줘야 하면 return을 정의
 	public double circleArea(int x) {
 		double result = 3.14 * x * x;
 		return result;
 	}
+	//원의 둘레를 구하는 circleRound메서드 정의
+	//반지름은 외부에서 전달
+	// : 2 * 3.14 * 반지름
+	//메서드 내부에서 둘레를 구하고 출력한다음 종료
 	
-	
-	
+	public void circleRound(int x) {
+		System.out.println(2 * 3.14 * x);
+		
+	}
+	//정수 배열을 매개변수로 받아서 짝수의 개수를 반환하는 countEven 메서드 작성
+
+	public int countEven(int[] x) {
+		int count = 0;
+		for (int i = 0; i < x.length ;i++ ) {
+			if (x[i] % 2 == 0) {
+			count++;	
+			}
+		}
+		System.out.println(count);
+		return 0;
+	}
 	
 	
 	
