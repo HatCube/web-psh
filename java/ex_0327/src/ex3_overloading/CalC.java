@@ -5,7 +5,10 @@ public class CalC {
 	//넓이는 메서드 내에서 출력하고 종료하겠습니다
 	
 	public void area (int x,int y) {
-		System.out.println(x*y);
+		System.out.println("직사각형의 넓이 : " + x*y);
+	}
+	public int area (int x) {
+		return x*x;
 	}
 	
 	
