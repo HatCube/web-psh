@@ -1,0 +1,18 @@
+package ex5_static;
+
+public class Calculator {
+	
+	//파이 : 3.141592;
+	static double pi = 3.141592;
+	
+	//외부에서 두 수를 받아 더하여 반환하는 plus 메서드 작성하기 
+	//minus도 같이 만들기
+	
+	public int plus(int x,int y) {
+		return x + y;
+	}
+	public int minus(int x,int y) {
+		return x - y;
+	}
+	
+}
