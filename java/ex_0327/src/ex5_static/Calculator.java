@@ -8,10 +8,10 @@ public class Calculator {
 	//외부에서 두 수를 받아 더하여 반환하는 plus 메서드 작성하기 
 	//minus도 같이 만들기
 	
-	public int plus(int x,int y) {
+	static public int plus(int x,int y) {
 		return x + y;
 	}
-	public int minus(int x,int y) {
+	static public int minus(int x,int y) {
 		return x - y;
 	}
 	
