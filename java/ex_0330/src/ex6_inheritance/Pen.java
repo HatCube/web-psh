@@ -4,4 +4,5 @@ public class Pen {
 	
 	public int amount;
 	
+	
 }
