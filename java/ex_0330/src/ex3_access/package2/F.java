@@ -9,5 +9,4 @@ public class F {
 	//D d2 = new D(1);
 	//D d3 = new D("문자열"); X
 	
-	
 }
