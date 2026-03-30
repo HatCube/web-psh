@@ -7,8 +7,7 @@ public class Student {
 	
 	public void setAge(int age) {
 		if (age < 0) {
-			this.age = 0;
-			return;
+			System.out.println("잘못된 나이입니다. 다시입력하세요.");
 		}else {
 			this.age = age;
 		}
