@@ -9,13 +9,9 @@ public class SmartPhone extends Phone{
 	public boolean wifi;
 	
 	public SmartPhone(String model,String color) {
-		super();//부모 생성자의 호출
+		super(model,color);//부모 생성자의 호출
 		//부모가 가지고 있는 필드를 자식 클래스에서 사용할 수 있다.
-		this.model = model;
-		this.color = color;
-		//생성자가 정의되어 있지 않으면 컴파일러가 기본 생성자를 만들어준다.
-		
-		//사용자가 직접 정의하는 순간 기본 생성자는 사라진다.
+
 	}
 	
 	public void setWifi(boolean wifi) {
