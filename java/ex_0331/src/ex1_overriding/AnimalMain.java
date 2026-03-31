@@ -6,9 +6,9 @@ public class AnimalMain {
 		Dog dog = new Dog();
 		Cat cat = new Cat();
 		
-		System.out.println(ani.sound());
-		System.out.println(cat.sound());
-		System.out.println(dog.sound());
+		ani.sound();
+		dog.sound();
+		cat.sound();
 		
 		
 		
