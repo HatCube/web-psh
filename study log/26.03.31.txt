@@ -79,9 +79,13 @@ Animal 클래스
 sound() : "동물이 운다"
 dog cat 클래스는 Animal 클래스를 상속
 sound() 오버라이딩 "멍멍""야옹"
+zoo 클래스 만들고
+printsound 메서드 정의
+매개변수 Animal animal을 가진다
+메서드 내부에서 animal.cound를 실행
 
-
-
+Main에서 zoo 객체를 만들고
+Dog Cat 객체를 전달하여 결과 확인
 
 
 
