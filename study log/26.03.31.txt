@@ -5,3 +5,20 @@ static final int FEE = 1000; (상수)
 패키지
 단순히 클래스를 분리하는 용도가 아니라 클래스별 구분자 역할도 한다.
 
+com
+>kumho
+>>Tire
+
+>hankook
+>>Tire
+
+보통은 회사 도메인의 역순으로 패키지 이름을 정한다
+도트(.)를 기준으로 계층이 생긴다
+com.kumho.Tire
+
+클래스명 extends 상속받을 클래스명{
+
+}
+
+오버로딩(overloading)
+오버라이딩(overriding)
