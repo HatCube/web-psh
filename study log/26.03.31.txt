@@ -22,3 +22,13 @@ com.kumho.Tire
 
 오버로딩(overloading)
 오버라이딩(overriding)
+
+Animal 클래스를 만든다
+sound()메서드를 만든다 
+Dog,Cat 클래스는 Animal 클래스를 상속받는다.
+Dog,Cat에서 sound를 오버라이딩한다
+
+main 에서 각 객체의 sound()를 호출했을때 다음과 같은 결과를 출력하라
+동물이 소리를 냅니다
+강아지가 멍멍 짖습니다
+고양이가 야옹 웁니다.
