@@ -40,6 +40,9 @@ public class UpCastingExample {
 		
 		//자식 객체를 부모 타입으로 전환하면 자식 클래스에 정의한 멤버(필드나 메서드)를 사용할 수 없다.
 		
+		((Child)parent).method3();//parent를 임시로 자식 타입으로 전환
+		Child c2 = (Child)parent;
+		c2.x = 100; 
 		
 	}
 }
