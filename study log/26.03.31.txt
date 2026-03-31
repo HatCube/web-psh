@@ -32,3 +32,20 @@ main 에서 각 객체의 sound()를 호출했을때 다음과 같은 결과를 
 동물이 소리를 냅니다
 강아지가 멍멍 짖습니다
 고양이가 야옹 웁니다.
+
+employee 클래스
+필드 
+name
+
+메서드 getPay() : 기본 0 반환
+RegularEmployee 클래스 
+필드
+salary
+getPay 오버라이딩 월급반환
+PartTimeEmployee 클래스
+필드 시급 근무시간
+get pay 오버라이딩
+main에서 각 직원의 이름과 급여 출력
+
+정규직 김철수 > 3000000
+알바 이영희 > 5000000
