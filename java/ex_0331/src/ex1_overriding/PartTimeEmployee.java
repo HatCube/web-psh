@@ -3,7 +3,7 @@ package ex1_overriding;
 public class PartTimeEmployee extends Employee{
 	
 	int hourp = 10000;
-	String worktime = "09시 ~ 16시";
+	int worktime;
 	
 	@Override
 	public void name() {
