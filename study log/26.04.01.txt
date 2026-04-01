@@ -4,3 +4,29 @@
 
 super.메서드명()
 
+Transport 추상클래스
+
+필드
+
+String name (생성자로 이름 전달)
+
+메서드
+void showName : 교통수단 : 버스
+void printFare(int distance)
+ㄴshowName 호출
+ㄴ거리 출력
+ㄴ요금 계산 총 xx원 형식으로 출력
+추상메서드
+int calculatorFare(int distaancd);
+
+Bus,Taxi Transport 상속
+
+
+
+
+
+
+
+
+
+
