@@ -1,4 +1,4 @@
-package ex_0331_review;
+package ex1_abstract;
 
 public class Main {
 	public static void main(String[] args) {
