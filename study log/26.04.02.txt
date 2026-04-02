@@ -5,3 +5,19 @@
 내부클래스인데 static이 붙은 형태이다.
 바깥객체에 소속된 내부 클래스 처럼 보이지만 
 실제로는 바깐 객체 없이도 독립적으로 만들 수 있는 내부 클래스 
+
+ RemoteControl 클래스 만들기
+필드
+String power "off"로 초기화
+
+인스턴스 내부 클래스 
+button
+메서드 press()
+>외부 클래스의 power 값을 "on"으로 바꾸고
+"전원을 켭니다"출력
+Main 에서 RemoteControl 객체를 생성한 뒤 button객체를 생성하여 press 메서드 호출
+마지막에 power 값도 호출하기
+
+예시
+전원을 켭니다
+현재 전원 상태 on
