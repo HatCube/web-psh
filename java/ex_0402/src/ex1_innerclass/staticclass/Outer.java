@@ -1,5 +1,10 @@
 package ex1_innerclass.staticclass;
 
+//정적 내부 클래스를 쓰는 이유
+//관련있는 클래스를 논리적으로 묶기위해(논리적 : 역할이 연결되어있다.)
+//바깥객체 참조가 필요 없는 내부 구조를 만들기 위해
+
+
 public class Outer {
 	
 	int a = 10;//일반 필드(멤버변수)
