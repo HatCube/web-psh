@@ -1,6 +1,6 @@
 package app;
 import pack1.A;
-import pack2.B;
+//import pack2.B;
 import pack3.C;
 
 public class Main {
@@ -8,10 +8,13 @@ public class Main {
 		A a = new A();
 		a.method();
 		
-		B b = new B();
-		b.method();
+		//B b = new B();
+		//b.method();
 		
 		C c = new C();
 		c.method();
+		
+		C result = a.getC();
+		result.method();
+		}
 	}
-}
