@@ -37,9 +37,14 @@ public class Main {
 			
 		});
 		
+		Calculator ct = new Calculator() {
+			@Override
+			public void add(int x,int y) {
+				System.out.println("결과 : " + (x+y));
+			}
+		};
 		
-		
-		
+		ct.add(5, 7);
 		
 		
 		
