@@ -7,5 +7,12 @@ public class Main {
 		
 		button.press();
 		System.out.println("현재 전원 상태 " + rc.power);
+		
+		Calculator result = new Calculator();
+		Calculator.Result result2 = result.add(10, 20);
+		
+		result2.show();
+		
+		
 	}
 }
