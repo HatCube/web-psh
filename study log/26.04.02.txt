@@ -21,3 +21,32 @@ Main 에서 RemoteControl 객체를 생성한 뒤 button객체를 생성하여 p
 예시
 전원을 켭니다
 현재 전원 상태 on
+
+Java 모듈 시스템을 이용하여 회원 등록 프로그램 만들기
+
+member.module
+member 패키지
+Member클래스
+필드 (private)
+>이름
+>나이
+생성자를 통하여 이름과 나이를 초기화 하세요
+
+service.module
+service 패키지
+MemberService클래스
+메서드 
+void register(Member member);
+회원 등록을 시작합니다.
+회원이름 : xx 
+회원 나이 : xx 
+회원등록이 완료되었습니다.
+
+app.module
+app 패키지 
+Main 클래스 
+키보드에서 사용자의 이름과 나이를 입력받으세요
+입력받은 이름과 나이를 사용하여 Member 객체를 생성하세요 
+MemberService 객체를 만들어 register()를 이용해 회원을 등록하세요 
+
+모듈 의존관계 app.module > service.module > member.module
