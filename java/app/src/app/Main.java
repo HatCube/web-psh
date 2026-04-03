@@ -6,15 +6,21 @@ import service.MemberService;
 
 public class Main {
 	public static void main(String[] args) {
+		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("사용자의 이름 입력 : ");
-		String name = sc.next();
+		System.out.print("이름을 입력하세요 : ");
+		String name = sc.nextLine();
 		
-		System.out.println("사용자의 나이 입력 : ");
+		System.out.print("나이를 입력하세요 : ");
 		int age = sc.nextInt();
 		
-		Member member = new Member();
-		MemberService ms = new MemberService();
+		Member member = new Member(name, age);
+		
+		MemberService service = new MemberService();
+		service.register(member);
+		
+		sc.close();
+		
 	}
 }
