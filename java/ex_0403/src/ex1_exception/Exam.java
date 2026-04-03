@@ -28,9 +28,13 @@ public class Exam {
 			System.out.println("인덱스 입력 : ");
 			int num = sc.nextInt();
 			System.out.println(fruits[num]);
-			}catch(ArrayIndexOutOfBoundsException e) {
+			}
+		
+		catch(ArrayIndexOutOfBoundsException e) {
 				System.out.println("존재하지 않는 인덱스 입니다.");
-			}catch(InputMismatchException e){
+			}
+		
+		catch(InputMismatchException e){
 				System.out.println("숫자를 입력해야 합니다.");
 			}
 		
