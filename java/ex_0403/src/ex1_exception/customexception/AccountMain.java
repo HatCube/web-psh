@@ -12,6 +12,7 @@ public class AccountMain {
 		try {
 			act.withdraw(130000);
 			System.out.println("예금액 : " + act.getBalance());
+			
 		} catch (InsurfficientException e) {
 			System.out.println(e.getMessage());
 			System.out.println(e.toString());
