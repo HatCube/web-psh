@@ -84,10 +84,10 @@ public class LocalDateTimeExample {
 		//현재 시간이 09:00 ~ 18:00 사이인지 확인하여
 		//예약 가능 여부를 출력하세요
 		
-		LocalDateTime changed2 = now.withHour(9).withMinute(0);
-		LocalDateTime changed3 = now.withHour(18).withMinute(0);
+		LocalDateTime start = now.withHour(9).withMinute(0).withSecond(0);
+		LocalDateTime end = now.withHour(18).withMinute(0).withSecond(0);
 		
-		if(now.isAfter(changed2) && now.isBefore(changed3)) {
+		if(now.isAfter(start) && now.isBefore(end)) {
 			System.out.println("가능");
 		}else {
 			System.out.println("불가능");
