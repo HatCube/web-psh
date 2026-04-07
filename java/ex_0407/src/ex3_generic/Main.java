@@ -1,8 +1,9 @@
 package ex3_generic;
 
+
 public class Main {
 	public static void main(String[] args) {
-		GenEx<String > v1 = new GenEx<String>();
+		GenEx<String> v1 = new GenEx<String>();
 		
 		v1.setValue("java");
 		
@@ -29,19 +30,23 @@ public class Main {
 		System.out.println(sample.getElement(5));
 		
 		
+		//타입 추론
+		//제네릭 메서드를 호출할 때 전달한 값으로 타입을 자동 판단한다.
+		Printer p = new Printer();
+		p.printValue("안녕하세요");
+		p.printValue(100);
+		p.printValue(3.14);
+		
+		//명시적으로 타입을 적는 방법
+		p.<String>printValue("안녕");
+		p.<Integer>printValue(100);
 		
 		
 		
 		
-		
-		
-		
-		
-	
-		
-		
-		
-		
-		
+		}
+	public <T> T getValue(T value) {
+		return value;
+
 	}
 }
