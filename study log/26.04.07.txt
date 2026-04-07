@@ -5,3 +5,30 @@ Class 클래스
 어노테이션을 직접 만드는 일은 거의 없다.
 
 하지만 자바에서 제공하거나 라이브러리가 제공하는 어노테이션을 사용하는 일이 많다.
+
+@Override
+@FunctionalInterface
+@Setter
+@Getter
+@..constr
+@Controller
+@Service
+@Repository
+@RequesrParam
+@REsponseBody
+@Entity
+
+배열 개념 
+>선언
+>생성(초기화 리스트, 빈 배열)
+
+생성자 개념
+>구조 
+
+오버로딩
+
+메서드
+>구조
+>매개변수
+>반환타입,반환값
+
