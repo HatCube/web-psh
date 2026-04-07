@@ -15,6 +15,8 @@ public class Main {
 		}
 		
 		//어노테이션에 들어있는 내용 출력하기
+		//getAnnotation() : 특정 어노테이션 하나를 가져온다.
+		
 		MyAnnotation my = (MyAnnotation)clazz.getAnnotation(MyAnnotation.class);
 		
 		System.out.println(my.value());
