@@ -24,8 +24,9 @@ public class Main {
 		
 		System.out.println(v3.getValue());
 		
-		
-		
+		Sample<String> sample = new Sample<String>();
+		sample.addElement("this is String", 5);
+		System.out.println(sample.getElement(5));
 		
 		
 		
