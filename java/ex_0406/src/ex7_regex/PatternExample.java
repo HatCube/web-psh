@@ -59,9 +59,21 @@ public class PatternExample {
 		String str3 = "test01@gmail.com";
 		System.out.println("이메일 : " + str3.matches(regExp5));
 		
+		String[] arr = {"123","abc","4567","a12b"};
+		regExp = "[0-9]+";
+		for(String s : arr) {
+			if(s.matches(regExp)) {
+				System.out.println(s);
+			}
+		}
 		
-		
-		
+		String[] arr2 = {"홍길동","Tom","김철수","a1","김이박길동"};
+		regExp = "[a-zA-Z0-9]+";
+		for (String s : arr2) {
+			if(!s.matches(regExp)) {
+				System.out.println(s);
+			}
+		}
 		
 		
 		
