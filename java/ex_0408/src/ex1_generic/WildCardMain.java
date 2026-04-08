@@ -15,6 +15,6 @@ public class WildCardMain {
 		wc.printList(list2);
 		wc.printNumbers(list2);
 		wc.printNumbers(list3);
-		wc.printNumbers(list1);
+		//wc.printNumbers(list1);
 	}
 }
