@@ -90,7 +90,8 @@ T payment
 process() : 필드가 가지고 있는 pay()실행 
 Main에서 각 결제방법에 대한 process 실행
 
-
+Animal클래스
+Animal을 상속받는 Dog,Cat 클래스 만들기
 
 
 
