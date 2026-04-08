@@ -72,3 +72,26 @@ getMessage
 getData
 
 Main에서 아래 데이터를 사용하여 객체를 생성하고 출력
+
+결제 시스템
+결제 가능한 객체만 처리하는 시스템 
+
+payment 인터페이스 
+메서드
+void pay
+CardPayment 클래스
+KakaoPay 클래스
+PaymentProcessor <제네릭> 클래스
+필드 
+T payment
+생성자를 통해 초기화
+
+메서드
+process() : 필드가 가지고 있는 pay()실행 
+Main에서 각 결제방법에 대한 process 실행
+
+
+
+
+
+
