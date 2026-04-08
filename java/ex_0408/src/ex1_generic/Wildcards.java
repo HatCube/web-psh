@@ -1,0 +1,44 @@
+package ex1_generic;
+
+import java.util.List;
+
+//와일드카드
+//제네릭 타입에서 "정확한 타입은 모르겠지만, 어떤 범위 안에 있는 타입이다."라고 표현할 때 사용
+//List<String> : 정확히 String을 담을 수 있는 리스트
+//List<Integer> : 정확히 Integer를 담는 리스트
+//와일드 카드의 기본 문법
+//<?> : 타입을 모름, 아무타입이나 가능
+//<? extends T> : T 또는 T의 자식 타입만 가능함(상한 제한)
+//<? super T> : T 또는 T의 부모타입만 가능함(하한 제한)
+
+//와일드카드가 써있는것들은 대부분 읽기 전용이다.
+public class Wildcards {
+	
+	//?에 어떤 타입이 들어올지 알 수 없기 때문이다.
+	public void printList(List<?> list) {
+		for(Object obj : list) {
+			System.out.println(obj);
+		}
+	}
+	
+	public void printNumbers(List<? extends Number>list) {
+		for(Number obj : list) {
+			System.out.println(obj);
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

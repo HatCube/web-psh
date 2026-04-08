@@ -22,5 +22,15 @@ public class Main {
         
         tvm.powerOn();
         aum.powerOn();
+        //Readable과 Closeable을 동시에 구현한 클래스만이 타입할당이 가능하다.
+        Box<BoxType> box = new Box<>();
+        
+        //Box<Object> box2 = new Box<>();
+        
+        
+        
+        
+        
+        
 	}
 }
