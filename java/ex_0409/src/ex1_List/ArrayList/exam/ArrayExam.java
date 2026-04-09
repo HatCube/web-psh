@@ -11,14 +11,16 @@ public class ArrayExam {
 		List<Integer> l = new ArrayList<Integer>();
 		
 		//리스트에 난수(1 ~ 30 사이) 10개 넣기
+		
 		for(int i = 0; i < 10 ; i++) {
 			int num = (int)(Math.random()*30)+1;
 			l.add(i,num);
 		}
 		System.out.println(l);
+		
 		//리스트에 담긴 데이터 중 홀수의 합을 구하시오 
 		int sum = 0;
-		for(int i = 0; i < 10; i++) {
+		for(int i = 0; i < l.size(); i++) {
 			if((l.get(i) % 2) != 0) {
 				sum += l.get(i);
 			}
