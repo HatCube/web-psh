@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-	
+	// List<? super Dog>list 에서 허용되는 타입 : 
+	// List<Dog>, List<Animal>, List<Object>
+	// List<Puppy> 는 안 됨
 	//<? super T>를 사용하는 큰 이유
 	//T타입을 안전하게 넣기 위해서 사용
 	public static void addDog(List<? super Dog> list) {
