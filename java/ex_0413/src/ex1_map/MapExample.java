@@ -72,17 +72,24 @@ public class MapExample {
 		Set<String> set = map.keySet();
 		for(String s : set) {
 			System.out.println(s);
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+
 		}
+		
+		//key-value 쌍 전체를 Set<Entry<K,V>> 형태로 반환
+		Set<Map.Entry<String, Integer>> set2 = map.entrySet();
+		System.out.println(set2);
+		
+		for(Map.Entry<String, Integer> entry : set2) {
+			System.out.println(entry.getKey() + " : " + entry.getValue());
+		}
+		
+		//key가 존재하면 value를 반환하고 , 없으면 기본값(default)를 반환하는 메서드
+		//getOrDefault(Object key, V defaultValue);
+		
+		//get()을 했을때 key가 없으면 null을 반환
+		
+		System.out.println(map.getOrDefault("사과", 1500));
+		
+		
 	}
 }
