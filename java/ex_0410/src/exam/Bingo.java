@@ -159,22 +159,5 @@ public class Bingo {
 		
 		return bingoCount;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
