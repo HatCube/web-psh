@@ -19,13 +19,5 @@ public class Main {
 		System.out.println(sub.calc(8, 6));
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 }
