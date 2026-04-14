@@ -43,3 +43,25 @@ List만들어서 멤버 데이터 채우기
 Predicate<Member>로 조건을 정의(20세 이상)
 
 리스트에서 20세 이상인 회원만 출력하기
+
+상품 재고관리 시스템
+상품 정보를 객체로 관리하고 람다식 Function<Product,Product>와 Predicate<Product>를 활용하여 추가 수정 조회, 삭제 기능을 구현하기
+
+product 클래스
+필드 (private, 생성자를 통해 값을 초기화)
+String code
+String name
+int price
+int stock
+
+setter & getter 
+ toString 오버라이딩
+Product {code = xxx, name=xxx, price=xxx, stock=xxx}로 나오도록 작성하기
+
+
+
+
+
+
+
+
