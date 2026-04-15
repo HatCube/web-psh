@@ -38,3 +38,13 @@ Predicate
 f.and(g) : f와 g의 결과가 참이어야 true를 반환
 f.or(g) : f 또는 g의 결과가 참이어야 true를 반환
 f.negate() : true -> false, false -> true로 바꾼다.
+
+printer클래스
+메서드print(String message)
+>"출력내용 : XXX" 라고 출력
+Main클래스
+
+static excutePrint(Consumer<String> action, String message)
+>전달받은 action을 사용하여 message 출력하기
+
+Printer 객체를 생성한 뒤 메서드 참조를 이용하여 "람다식 전달 연습"이라고 출력하기
