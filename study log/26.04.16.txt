@@ -20,3 +20,8 @@ Fileinputstream
 >외부에서 파일의 내용을 읽어는 클래스
 
 문자 기반의 스트림
+
+FileConverter클래스
+메서드 void copy(String source,String target);
+특정 이미지 파일을 복사하여 새로운 파일을 만들고 복사된 파일의 크기(byte)를 log.txt에 기록하는 기능 만들기
+1024바이트씩 읽어서 복사 
