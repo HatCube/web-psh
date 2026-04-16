@@ -10,14 +10,26 @@ public class Example {
 		//대문자 : n
 		//소문자 : n
 		
-		try(FileReader fr = new FileReader("test.txt");) {
+		int upper = 0;
+		int lower = 0;
+		
+		try(FileReader fr = new FileReader("test.txt")) {
 			
 			
 			int code = 0;
 			
 			while ((code = fr.read()) != -1){
-				System.out.print((char)code);
+				if(code >= 'A' && code <='Z') {
+					upper++;
+				}
+				
+				if(code >= 'a' && code <='z') {
+					lower++;
+				}
 			}
+			System.out.println("대문자 : " + upper);
+			System.out.println("소문자 : " + lower);
+
 			
 			} catch (Exception e) {
 			// TODO Auto-generated catch block
