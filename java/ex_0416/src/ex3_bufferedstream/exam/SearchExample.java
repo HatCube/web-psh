@@ -21,27 +21,26 @@ public class SearchExample {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		String search = null;
-		try {
-
-			System.out.println("검색어 입력 : " + search);
-			search = br.readLine();
-
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-
-		try(FileReader fr = new FileReader("story.txt");
+		try (FileReader fr = new FileReader("story.txt");
 				BufferedReader br2 = new BufferedReader(fr);
 				){
+
+			System.out.println("검색어 입력 : ");
+			search = br.readLine();
+			
 			String line;
-			//readLine() : 한 줄 단위로 문자열을 읽어오는 메서드
-			//내용이 긴 것도 쉽게 읽어올 수 있음
+
 			while((line = br2.readLine()) != null) {
-				System.out.println(line);
+				if(line.contains(search) == true) {
+					System.out.println(line);
+				}
+				
 			}
+
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 		}
+
 
 	}
 }
