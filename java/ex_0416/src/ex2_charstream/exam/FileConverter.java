@@ -4,43 +4,27 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class FileConverter {
-	public static void main(String[] args) {
+	public void copy(String source,String target) throws Exception{
 		
-		FileInputStream in = null;
-		FileOutputStream out = null;
+		FileInputStream fis = new FileInputStream(source);
+		FileOutputStream fos = new FileOutputStream(target);
 		
-		try {
-		in = new FileInputStream("wall.jpg");
-		out = new FileOutputStream("wall_copy.jpg");
 		byte[] buffer = new byte[1024];
+		int length;
+		long totalbytes = 0;
 		
-		
-		int data = 0;
-
-		while((data = in.read(buffer)) !=-1) {
-			
-			out.write(buffer,0,data);
+		while((length = (fis.read(buffer))) != -1) {
+			fos.write(buffer,0,length);
+			totalbytes += length;
 		}
+		fis.close();
+		fos.close();
 		
-		} catch (Exception e) {
-			// TODO: handle exception
-		} finally {
-			try {
-				
-				if(out != null) {
-					out.close();
-				}
-				if(in != null) {
-					in.close();
-				}
-			} catch (Exception e2) {
-
-			}
-		}
-		
-		
-		
-		
+		//로그기록
+		FileOutputStream logFos = new FileOutputStream("log.txt",true);
+		String logmsg = "복사 완료 : " + totalbytes + "bytes\n";
+		logFos.write(logmsg.getBytes());
+		logFos.close();
 		
 		
 		

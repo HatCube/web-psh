@@ -1,2 +1,2 @@
-오메 이게 뭐시당까
-file이야 file
+OutputStreamWriter에 대해서 배웁니다.
+we are learning about OutputStreamWriter
