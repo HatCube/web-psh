@@ -94,3 +94,68 @@ alter table example drop column col2;
 #컬럼명 변경하기
 #RENAME COLUMN 컬럼명 TO 바꿀 컬럼명;
 alter table example rename column col1 to first_col;
+
+#컬럼의 타입 변경
+#MODIFY COLUMN 컬럼명 타입;
+alter table example modify column col3 INT;
+
+#제약조건 추가하기
+# ADD 제약조건 종류 (대상 컬럼);
+alter table example add primary key (first_col);
+
+#제약조건 삭제하기
+#DROP 제약조건종류;
+alter table example drop primary key;
+
+#show index from 테이블
+#제약조건에 부여된 이름 찾기 KEY_NAME 부분이 부여된 이름임
+show index from tbl_car;
+
+#STUDENT 테이블 만들기
+#속성 
+# ID : 정수,기본키
+#NAME : 문자열(50), NOT NULL
+#AGE : 정수 
+#EMAIL : 문자열(100)
+
+create table STUDENT(
+id int primary key,
+name varchar(50) not null,
+age int,
+email varchar(100)
+);
+
+#다음의 컬럼을 테이블에 추가하세요
+#PHONE : 문자열(20)
+
+alter table student add column phone varchar(20);
+
+#AGE 컬럼의 타입을 정수 > TINYINT로 수정히세요
+
+alter table student modify column age tinyint;
+
+#NAME컬럼의 이름을 STUDENT_NAME으로 변경하세요
+
+alter table student rename column name to student_name;
+
+#PHONE컬럼을 삭제하세요
+
+alter table student drop column phone;
+
+#EMAIL컬럼을 NOT_NULL로 변경하세요
+
+alter table student modify email varchar(100) not null;
+
+#여러 컬럼을 한번에 추가하기
+# ADDRESS : 문자열(100)
+# GRADE : 정수
+alter table student
+add address varchar(100),
+add grade int;
+
+create table tbl_animal(
+	id int primary key,
+	type varchar(100),
+	age int,
+	feed varchar(100)
+);
