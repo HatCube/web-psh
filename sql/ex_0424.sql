@@ -125,6 +125,8 @@ age int,
 email varchar(100)
 );
 
+
+
 #다음의 컬럼을 테이블에 추가하세요
 #PHONE : 문자열(20)
 
@@ -153,9 +155,42 @@ alter table student
 add address varchar(100),
 add grade int;
 
+# grade 컬럼의 기본값을 1로 설정하기
+alter table student
+modify column grade int default 1;
+
+#add로 추가하기
+#pk,unique,check
+
+#modify로 수정하기
+#not null, default
+
+#mysql에서 예약어를 컬럼명으로 사용할때
+#백틱으로(``) 감싸준다.
 create table tbl_animal(
 	id int primary key,
 	type varchar(100),
 	age int,
 	feed varchar(100)
 );
+
+#default와 check 제약조건 사용해보기
+create table tbl_student(
+id int primary key,
+name varchar(100),
+mager varchar(100),
+gender char(1) not null default 'w',
+birth date,
+constraint ban_char check (gender in ('m','w')),
+constraint ban_date check (birth  >= '1980-01-01')
+);
+
+#default : 컬럼에 값이 아예 주어지지 않았을때 자동으로 들어가는 값
+#not null : 컬럼에 null값 자체를 허용하지 않겠다.
+
+#같이 사용하면 값 생략시 'w'가 들어가게 되고, 누군가 null을 넣으려고 하면 db가 거부한다.
+
+#not null이 없고 default만 있을때 누군가 gender자리에 null이라 넣으면 데이터가 null이라고 들어가게 된다.
+
+#gender에 들어갈 수 있는 데이터는 m과 w만 들어갔으면 좋겠음
+#null이 들어오면 무결성이 깨진다.
