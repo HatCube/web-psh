@@ -118,3 +118,7 @@ Scouter
 
 SQL을 작성하고 실행하게 되면 > 임시로 반영(결과 확인 가능) > 마음에 들면 COMMIT
 >마음에 안들어 ROLLBACK (주의할점 > COMMIT하고 나서 롤백은 안됨)
+
+CHECK 제약조건은 값이 들어올 때 검사
+null이 들어오게 되면 비교 자체가 안된다.
+check는 false는 막는데 unknown은 통과
