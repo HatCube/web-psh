@@ -1,0 +1,96 @@
+create database if not exists academy_db
+character set = utf8mb4
+collate = utf8mb4_unicode_ci;
+
+# 한줄 주석
+-- 한줄 주석
+
+/*
+ * 범위
+ * 주석
+ * */
+
+#TBL_MEMBER라는 이름의 테이블 만들기
+#속성 
+-- 문자열 : 이름(길이 50) 
+-- 정수 : 나이
+-- 제약조건 없음
+
+#SQL은 스크립트 전체가 실행되지 않는다.
+# 구문별로 실행이 된다.
+
+#테이블을 생성하는 SQL이기 때문에 다시 실행하면 이미 만들어져 있다고 에러가 발생한다.
+create table if not exists TBL_MEMBER (
+NAME VARCHAR(50),
+AGE INT
+);
+
+#테이블명 TBL_CAR
+#속성
+#정수 : ID
+#문자열 : brand(길이 100)
+#문자열 : color(길이 100)
+#정수 : price 
+#id 속성에 기본 키 제약 조건 주기
+create table if not exists TBL_CAR(
+	id int primary key,
+	brand varchar(100),
+	color varchar(100),
+	price int
+);
+
+# 테이블 삭제
+drop table tbl_car;
+
+#테이블이 존재할 때만 삭제하는 방식
+#DROP TABLE IF EXISTS 테이블 명;
+
+#테이블 안의 데이터도 전부 삭제된다.
+#외래키(FK)로 연결된 테이블이 있을 경우 삭제가 안될 수 있다.
+
+
+#속성 옆에 제약조건을 주는거랑
+#constrraint 써서 제약조건 주는 거랑 무슨 차이인가
+
+#속성 옆에 작성하는 방법(inline방식)
+#간단하고 직관적이다
+
+#constraint로 제약조건 작성(table-level 방식)
+#이름 지정 가능 
+#constraint car_pk primary key(id);
+
+#inline 방식은 이름이 자동 생성 > 나중에 수정/삭제가 어렵다
+
+#여러 컬럼 제약조건 가능 여부
+#inline방식은 단일컬럼에만 가능
+#constraint pk_order primary key(user_id,product_id);
+
+#가독성과 구조
+#inline 방식
+#간단,빠르게 작성, 소규모 테이블에 적합하다.
+
+#constraint방식
+#구조가 명확
+#제약조건을 한곳에서 관리 가능
+#실무에서 더 많이 사용
+
+create table example (
+col1 varchar(10) not null,
+col2 varchar(10),
+create_date datetime default current_timestamp
+);
+
+#수정
+#ALTER TABLE 테이블명 ...
+
+#컬럼 추가하기
+#add column 컬럼명 데이터 타입;
+alter table example add column col3 varchar(50);
+
+#컬럼 삭제하기 
+#DROP COLUMN 컬럼명;
+alter table example drop column col2;
+
+#컬럼명 변경하기
+#RENAME COLUMN 컬럼명 TO 바꿀 컬럼명;
+alter table example rename column col1 to first_col;
