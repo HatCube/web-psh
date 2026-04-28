@@ -36,3 +36,6 @@ select * from 테이블;
 
 Like
 >문자열 안에서 특정 글자나 패턴을 찾을때 사용하는 조건문
+select 컬럼명
+from 테이블명
+where 컬럼명 like '패턴'
