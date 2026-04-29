@@ -188,7 +188,10 @@ select SUBSTRING_INDEX('a-b-c-d','-',-2);
 -- 이름의 글자 수와 닉네임의 글자 수 구하기
 -- 홍길동 3 길동이 3
 
-select concat (name,' ',CHAR_LENGTH(name),' ',nickname,' ',CHAR_LENGTH(nickname)) from member;
+select name, char_length(name), nickname, char_length(nickname) from member;
+select concat (name,' ',CHAR_LENGTH(name),' ',nickname,' ',CHAR_LENGTH(nickname))
+from member
+where nickname is not null;
 
 -- 전화번호가 010으로 시작하지 않는 회원을 찾고 '국내번호 아님 : 전화번호'를 붙혀서 출력
 select
