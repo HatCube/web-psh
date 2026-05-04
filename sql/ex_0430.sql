@@ -398,22 +398,27 @@ group by year(HIRE_DATE);
 
 -- 부서별로 급여가 5000 이상인 사원들의 평균 급여 구하기 
 
-select avg(salary),count(*)
+select avg(salary),DEPARTMENT_ID 
 from employees
 where salary >= 5000
-group by salary;
+group by DEPARTMENT_ID;
 
 -- 부서별 최고급여와 최저급여의 차이를 구하시오
 
-select JOB_ID,MAX(salary),MIN(salary),(MAX(salary) - MIN(SALARY))
+select DEPARTMENT_ID,MAX(salary),MIN(salary),(MAX(salary) - MIN(SALARY))
 from employees
-group by JOB_ID;
+group by DEPARTMENT_ID;
 
 -- 이름에 'A'가 포함된 사원들만 대상으로 이름 길이별 사원 수를 구하라
 
-select first_name,last_name,format(CHAR_LENGTH(FIRST_NAME),0)
+select CHAR_LENGTH(FIRST_NAME),count(*)
 from employees
-where FIRST_NAME like '%A%';
+where FIRST_NAME like '%A%'
+group by char_length(FIRST_NAME);
 
 -- 입사일 기준으로 요일별 사원 수 구하기
-
+select
+	DAYNAME(hire_date),
+	count(*)
+	from employees
+	group by dayname(HIRE_DATE);
