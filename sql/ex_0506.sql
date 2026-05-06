@@ -171,3 +171,189 @@ order by created_at desc;
 -- board 테이블에서 idx_board_category_created 인덱스를 사용해서 category = '공지' 조건 데이터를 찾았고 역순으로 읽었으며
 -- 예상 비용은 0.8 예상 결과 행 수는 3개이다.
 -- 예상 비용 > cpu사용량,디스크 읽기,메모리 사용량
+
+show index from board;
+
+DROP TABLE IF EXISTS product;
+
+CREATE TABLE product (
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(50),
+    category VARCHAR(30),
+    price INT,
+    stock INT,
+    created_at DATE
+);
+
+INSERT INTO product
+(product_name, category, price, stock, created_at)
+VALUES
+('노트북', '전자제품', 1200000, 10, '2026-05-01'),
+('마우스', '전자제품', 30000, 100, '2026-05-02'),
+('키보드', '전자제품', 80000, 50, '2026-05-03'),
+('모니터', '전자제품', 350000, 20, '2026-05-04'),
+('책상', '가구', 250000, 15, '2026-05-01'),
+('의자', '가구', 120000, 30, '2026-05-02'),
+('침대', '가구', 800000, 5, '2026-05-03'),
+('텀블러', '생활용품', 25000, 200, '2026-05-04'),
+('청소기', '생활용품', 500000, 8, '2026-05-05'),
+('에어프라이어', '가전제품', 180000, 12, '2026-05-06');
+
+-- 상품 검색용 인덱스 생성하기
+-- product_name 컬럼에 인덱스를 생성하세요.
+-- idx_product_name
+
+create index idx_product_name on product(product_name);
+
+-- 복합 인덱스 생성하기
+-- 카테고리별 가격 검색을 빠르게 하기 위해 category,price를 기준으로
+-- 인덱스를 생성해주세요
+-- idx_product_price
+
+create index idx_product_price on product(category,price);
+
+-- product 테이블에 생성된 인덱스를 확인해주세요
+
+show index from product;
+
+-- idx_product_price 삭제하기
+
+drop index idx_product_price on product;
+
+-- 다음 쿼리가 인덱스를 사용하는지 확인하라
+
+select * from product
+where product_name = '노트북'
+
+-- 1.단일행 서브쿼리
+-- 서브쿼리문의 결과가 1개의 값만 반환할 때 그값을 이용하여 메인 쿼리를 처리
+-- 전체 평균 금액보다 큰 금액을 판 데이터 조회
+
+select *
+from sales
+where sales_amount > (select avg(sales_amount) from sales);
+
+-- 사원 테이블에서 박민수 사원의 급여보다 많이 받는 인사팀 직원들 조회하기
+
+select * from employee
+where department = '인사팀' and salary > (select salary from employee where emp_name = '박민수');
+
+-- 전체 직원의 평균 급여보다 급여를 많이 받는 직원의 이름과 급여를 조회
+
+select * from employee
+where salary > (select avg(salary) from employee);
+
+-- 전체 직원 중 가장 높은 급여를 받는 직원의 이름과 급여를 조회
+
+select * from employee
+where salary = (select max(salary) from employee);
+
+-- 다중 행 서브쿼리
+-- 서브쿼리가 여러개의 결과를 반환
+
+-- 개밟팀 직원들 받는 급여와 같은 급여를 받는 직원 조회하기
+-- in : 서브쿼리에서 조회된 값중 일치하는 것
+select emp_name,department,salary
+from employee
+where salary in (select salary from employee where department = '개발팀');
+
+-- any : 여러 값들 중 하나라도 조건을 만족하면 참
+-- 인사팀 직원중 한명이라도 받는 급여보다 높은 급여를 받는 직원 조회하기
+-- 6000,4000,4000 중 하나라도 만족하면 true
+-- salary > 4000 인 직원이 조회가 된다.
+
+select emp_name,department,salary
+from employee
+where salary > any (select salary from employee where department = '인사팀');
+
+-- all : 여러 값들 전부에 대해 조건을 만족해야 한다.
+-- 인사팀의 모든 직원보다 급여가 높은 직원을 조회하라
+
+select emp_name,department,salary
+from employee
+where salary > all (select salary from employee where department = '인사팀');
+
+-- SALES테이블에서 서울에서 판매된 상품명과 같은 상품을 판매한
+-- 전체 데이터를 조회하세요
+
+select * from sales
+where product_name in (select product_name from sales where region = '서울');
+
+-- 부산에서 판매된 카테고리와 같은 카테고리에 속한 상품을 모두 조회하세요
+
+select * from sales
+where category in (select category from sales where region = '부산');
+
+-- 대구에서 판매된 전자제품과 같은 상품명을 가진 상품을 모두 조회하세요
+
+select * from sales
+where product_name in (select product_name from sales where region = '대구' and category = '전자제품');
+
+-- 대구에서 판매된 상품 가격 중 하나보다라도 비싼 상품을 조회하세요
+
+select * from sales
+where sales_amount > any (select sales_amount from sales where region = '대구');
+
+-- 부산의 가구 가격 중 하나보다라도 저렴한 상품을 조회하세요
+
+select * from sales
+where sales_amount < any (select sales_amount from sales where region = '부산' and category = '가구');
+
+-- 대구에서 판매된 모든 상품보다 비싼 상품을 조회하세요
+
+select * from sales
+where sales_amount > all (select sales_amount from sales where region = '대구');
+
+-- 서울에서 판매된 모든 가구보다 저렴한 상품을 조회하세요
+
+select * from sales
+where sales_amount < all (select sales_amount from sales where region = '서울' and category = '가구');
+
+-- 다중컬럼 서브쿼리
+-- 서브쿼리가 여러 컬럼을 동시에 반환하는 것
+
+-- select 컬럼명 from 테이블명 where (컬럼1,컬럼2) in (select 컬럼1,컬럼2 from 테이블명 )
+
+-- 각 부서의 최고 급여를 받는 직원 조회하기
+select department,max(salary)
+from employee
+group by department;
+
+select emp_name,department,salary
+from employee
+where(department, salary)
+in (select department,max(salary) from employee group by department);
+
+-- 각 부서에서 가장 낮은 급여를 받는 직원의 이름,부서, 급여 조회하기
+
+select emp_name,department,salary
+from employee
+where(department, salary)
+in (select department,min(salary) from employee group by department);
+
+-- 부서별 최고 급여와 동일한 급여를 받는 직원의 이름,부서,급여 조회하기
+
+select emp_name,department,salary
+from employee
+where(department, salary)
+in (select department,max(salary) from employee group by department);
+
+-- 전체 평균 급여 이상을 받는 직원의 이름,부서,급여 조회하기
+
+select emp_name,department,salary
+from employee
+where salary 
+> (select avg(salary) from employee);
+
+-- 각 부서 최고 급여 직원의 사번,이름,부서 조회하기
+
+select emp_id ,emp_name,department 
+from employee
+where(department, salary)
+in (select department,max(salary) from employee group by department);
+
+-- 부서별 최저 급여를 받는 직원을 제외한 나머지 직원의 이름 부서 급여 조회
+
+
+
+-- 각 부서에서 최고 급여를 받는 직원이 몇명인지 조회하기
