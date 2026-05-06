@@ -354,6 +354,4 @@ in (select department,max(salary) from employee group by department);
 
 -- 부서별 최저 급여를 받는 직원을 제외한 나머지 직원의 이름 부서 급여 조회
 
-
-
 -- 각 부서에서 최고 급여를 받는 직원이 몇명인지 조회하기
