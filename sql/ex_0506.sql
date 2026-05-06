@@ -135,3 +135,39 @@ where department = '개발팀';
 select
 emp_name,department,salary,rank()over(partition by department order by salary desc)
 from employee;
+
+CREATE TABLE board (
+    board_id INT AUTO_INCREMENT PRIMARY KEY,
+    category VARCHAR(30),
+    title VARCHAR(100),
+    created_at DATETIME
+);
+
+select * from board where category = '공지'
+order by created_at desc;
+
+create index idx_board_category_created
+on board(category,created_at);
+
+INSERT INTO board(category, title, created_at) VALUES
+('공지', '사이트 점검 안내', '2026-05-01 09:00:00'),
+('공지', '회원가입 정책 변경', '2026-05-01 14:30:00'),
+('자유', '오늘 점심 뭐 드셨나요?', '2026-05-02 12:10:00'),
+('자유', '주말에 영화 추천 부탁드립니다', '2026-05-02 18:45:00'),
+('질문', 'MySQL VARCHAR와 TEXT 차이가 뭔가요?', '2026-05-03 10:20:00'),
+('질문', 'JOIN이 너무 어려운데 공부 방법 있을까요?', '2026-05-03 16:00:00'),
+('후기', '리액트 강의 정말 도움이 됐습니다', '2026-05-04 11:15:00'),
+('후기', '스프링부트 프로젝트 후기 남깁니다', '2026-05-04 19:40:00'),
+('공지', '서버 점검 완료 안내', '2026-05-05 08:30:00'),
+('자유', '요즘 공부할만한 기술 추천해주세요', '2026-05-05 21:05:00');
+
+select * from board
+
+-- explain으로 인덱스 사용 여부 확인
+
+explain select * from board where category = '공지'
+order by created_at desc;
+-- -> Index lookup on board using idx_board_category_created (category = '공지') (reverse)  (cost=0.8 rows=3)
+-- board 테이블에서 idx_board_category_created 인덱스를 사용해서 category = '공지' 조건 데이터를 찾았고 역순으로 읽었으며
+-- 예상 비용은 0.8 예상 결과 행 수는 3개이다.
+-- 예상 비용 > cpu사용량,디스크 읽기,메모리 사용량
