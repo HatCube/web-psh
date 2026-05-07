@@ -20,9 +20,37 @@ group by category
 -- 부서별 평균을 inline_view를 활용하여 조회
 -- 출력 컬럼 : department,avg_salary
 
+select *
+from (select DEPARTMENT, AVG(SALARY) as AVG_SALARY 
+from EMPLOYEE group by DEPARTMENT) as D;
+
+-- 평균 급여가 5000 이상인 부서만 조회하세요
+-- inline view 활용하기
+select *
+from (
+	select DEPARTMENT, AVG(SALARY) as AVG_SALARY
+	from EMPLOYEE
+	group by DEPARTMENT
+	having AVG_SALARY >= 5000
+) as D;
+
 -- 각 부서의 최고 급여 조회하기
 
+select *
+FROM(
+	select DEPARTMENT, MAX(SALARY) as MAX_SALARY
+	from EMPLOYEE
+	group by DEPARTMENT
+) D;
+
 -- sales 테이블을 이용하여 지역별 판매 건수를 서브쿼리를 이용하여 조회
+
+select *
+FROM(
+	select REGION, SUM(sales_amount)
+	from sales
+	group by region
+) t;
 
 -- 지역별로 최고 판매금액,최저 판매금액, 최고와 최저 판매금액의 차이를 조회
 
