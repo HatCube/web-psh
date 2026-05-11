@@ -104,4 +104,37 @@ case
 	when 조건식 2 then 결과 2
 	when 조건식 3 then 결과 3
 	else 기본결과
-end 
+end
+
+MySQL의 반복문은 일반 SQL에서는 사용할 수 없고
+주로 프로시저 안에서 사용한다.
+
+반복문의 종류
+LOOP > 무한 반복 기반
+While > 조건이 참인 동안 반복
+Repeat > 최소 1번 실행 후 조건 검사
+
+반복문을 사용하는 구조
+변수 : 반복횟수를 저장
+조건식 : 반복 종료를 판단
+SET : 변수 증가
+LEAVE : 반복종료
+Iterate : 다음 반복으로 이동
+
+ㅡㅡ 시험범위 ㅡㅡ
+DDL 테이블 만들기
+
+DML
+select
+insert
+update
+delete
+
+집계함수(sum,count,min,avg,max)
+>group by, having
+
+index
+
+subquery
+join
+view
