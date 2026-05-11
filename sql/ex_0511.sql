@@ -144,38 +144,48 @@ call delete_product_if_exists(100);
 -- 주문 성공 시 '주문이 완료되었습니다'출력
 
 delimiter //
-create procedure order_product(in p_product_id int, in p_quantity int)
+create procedure order_product(
+   in p_product_id int,
+   in p_quantity int
+)
 begin
-	declare v_count int;
-	declare v_stock int;
-	declare v_price int;
-
-	select count(*) from product where product_id = p_product_id;
-	
-	if v_count = 0 then
-		select '상품이 존재하지 않습니다' as message;
-	else
-		select price,stock 
-		into v_price,v_stock
-		from product 
-		where product_id = p_product_id;
-	
-		if v_stock < p_quantity then
-			select '재고가 부족합니다' as message;
-		else -- v_stock >= p_quantity
-			-- 주문내역을 orders 테이블에 추가
-			insert into orders(product_id,quantity,total_price)
-			values (p_product_id,p_quantity,v_price * p_quantity);
-			
-		-- 주문한 수량만큼 제품의 재고를 차감
-			update product
-			set stock = stock - p.quantity
-			where product_id = p_product_id;
-	
-	
+   declare v_count int;
+   declare v_stock int;
+   declare v_price int;
+   
+   select count(*)
+   into v_count
+   from product
+   where product_id = p_product_id;
+   
+   if v_count = 0 then
+      select '상품이 존재하지 않습니다' as message;
+   else
+      -- 가격과 재고를 조회하여 사용하기 위해 변수에 담는다.
+      select price, stock
+      into v_price, v_stock
+      from product
+      where product_id = p_product_id;
+   
+      if v_stock < p_quantity then
+         select '재고가 부족합니다.' as message;
+      else -- v_stock >= p_quantity
+         -- 주문내역을 orders 테이블에 추가
+         insert into orders (product_id, quantity, total_price)
+         values (p_product_id, p_quantity, v_price * p_quantity);
+         
+         -- 주문한 수량만큼 제품의 재고를 차감
+         update product
+         set stock = stock - p_quantity
+         where product_id = p_product_id;
+         
+         select '주문이 완료되었습니다.' as message;
+      end if;
+   end if;
 end //
 delimiter ;
 
+call order_product(1,2);
 -- 가격 등급 조회 프로시저
 -- 이름 : get_price_grade
 -- 상품 id를 입력받는다.
