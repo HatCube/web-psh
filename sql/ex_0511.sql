@@ -230,3 +230,44 @@ delimiter ;
 call get_price_grade(1);
 call get_price_grade(2);
 call get_price_grade(3);
+
+-- 기본 문법
+-- case
+-- 	when 조건식 1 then 결과 1
+-- 	when 조건식 2 then 결과 2
+-- 	when 조건식 3 then 결과 3
+-- 	else 기본결과
+-- end
+
+-- product 테이블에서 상품명, 재고, 재고가 50개 이상이면 '재고많음'
+-- 10개 이상이면 '재고 보통', 그 미만은 '재고 부족'
+
+select 
+	product_name,
+	stock ,
+	case
+		when stock >= 50 then '재고 많음'
+		when stock >= 10 then '재고 보통'
+		else '재고 부족'
+	end as stock_status
+from product;
+
+-- when은 조건
+-- then은 조건이 참일 때 반환할 값
+-- else는 어떠한 조건도 만족하지 않을 때의 반환할 값
+-- end는 case문의 끝을 의미한다.
+-- case문은 위에서 아래로 조건을 검사한다
+-- 범위조건은 큰 조건부터 작은 조건 순서대로 작성해야 한다.
+
+-- 특정 컬럼의 값이 무엇인지 비교할 때 사용할 수 있다.
+
+select
+	product_name,
+	category,
+	case category
+		when '전자기기' then '전자제품 코너'
+		when  '가구' then '가구 코너'
+		when '생활용품' then '생활용품 코너'
+		else '기타 코너'
+	end as display_area
+	from product;
