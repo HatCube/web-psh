@@ -195,8 +195,38 @@ call order_product(1,2);
 -- 상품이 없으면 "상품이 없습니다." 출력하기
 
 delimiter //
-create procedure get_price_grade(in p_id int)
+create procedure get_price_grade(
+	in p_product_id int
+)
 begin
-	select 
+	declare v_count int ;
+	declare v_price int;
+
+	select count(*)
+	into v_count
+	from product
+	where product_id = p_product_id;
+	
+	if v_count = 0 then
+		select '상품이 없습니다' as message;
+	else
+		select price
+		into v_price
+		from product
+		where product_id = p_product_id;
+	
+		if v_price >= 100000 then
+			select '고가 상품' as grade;
+		elseif v_price >= 50000 then
+			select '중간 가격 상품' as grade;
+		else 
+			select '저가 상품' as grade;
+		end if;
+	end if;
+	
 end //
 delimiter ;
+
+call get_price_grade(1);
+call get_price_grade(2);
+call get_price_grade(3);
