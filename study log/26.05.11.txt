@@ -1,0 +1,71 @@
+stored Program
+> MySQL 서버 안에 저장해두고 실행하느 프로그램의 단위
+
+프로그램의 종류
+>프로시저 : 여러 SQL작업을 묶어서 실행하는 프로시저
+>Function : 값을 계산해서 반환하는 함수
+>Trigger : Insert,Update,Delete 가 발생할 때 자동 실행
+>Event : 정해진 시간마다 자동 실행
+
+Stored Program 문법
+>MySQL안에서 프로그래밍 언어처럼 SQL을 실행하기 위한 문법
+
+문법의 종류
+>변수
+>조건문
+>반복문
+>예외처리
+>커서
+>BEGIN - END 블록
+
+프로시저(Prodecure)
+>여러 개의 SQL문을 하나의 이름으로 저장하고, 필요할때 호출해서 실행하는 기능
+
+>자주 사용하는 SQL을 간단하게 사용할 수 있다.
+
+기본 구조
+Delimiter // 
+Create Procedure 프로시저명(매개변수)
+Begin
+	SQL문
+End //
+Delimiter ;
+
+프로시저 호출방법
+Call 프로시저();
+
+프로시저 삭제 방법
+Drop Procedure If Exists 프로시저명;
+
+매개변수
+In : 외부에서 값을 받아서 프로시저 내부로 전달
+Out : 프로시저 안에서 만든 값을 외부로 전달
+Inout : 값을 받아서 수정한 뒤 다시 외부로 전달
+
+키워드 변수명 자료형,
+키워드 변수명 자료형,
+키워드 변수명 자료형
+
+세션변수
+>전역변수(Static 변수 느낌)
+>현재 MySQL 접속에서 사용할 수 있는 변수
+
+@변수명 
+
+Inout은 값을 받아서 변경한뒤 다시 반환할 때
+Delimiter //
+create Procedure add_ten(
+inout p_num int
+)
+begin
+	set P_num = p_num + 10;
+end //
+delimiter ;
+
+set @num = 5;
+
+call add_ten(@num)
+
+declare로 선언하는 지역변수
+declare 변수명 자료형 default 기본값;
+선언 위치는 begin 바로 아래여야 한다.
