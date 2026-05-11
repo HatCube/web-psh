@@ -69,3 +69,18 @@ call add_ten(@num)
 declare로 선언하는 지역변수
 declare 변수명 자료형 default 기본값;
 선언 위치는 begin 바로 아래여야 한다.
+
+set 변수명 = 값;
+
+set 변수명 = (sql문)
+
+select 컬럼 into 변수명 from 테이블
+
+if문
+
+if 조건 then tlfgodans
+elseif 조건 then 실행문,
+elseif 조건 then 실행문,
+elseif 조건 then 실행문,
+else 실행문
+end if;
