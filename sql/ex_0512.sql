@@ -583,3 +583,67 @@ CREATE TABLE board_log (
 
 -- board 테이블에 게시글이 추가되면 board_log 테이블에 등록 로그를 남기는 트리거 작성하기
 
+delimiter //
+create trigger trg_board_after_insert
+after insert on board 
+for each row
+begin
+	insert into board_log(
+	board_id,
+	action_type,
+	new_title,
+	log_message
+	)
+	values(
+		new.board_id, -- 새로 추가된 값을 가져온다.
+		'insert',
+		new.title,
+		'게시글이 등록되었습니다.'
+	);
+end //
+delimiter ;
+
+-- board 테이블에 데이터 추가하기 
+insert into board(title , content,writer)
+values('첫번째 게시글','트리거 실습', '홍길동');
+
+select * from board;
+select * from board_log;
+
+-- 게시글이 수정됬을 때 로그를 기록하는 트리거
+-- 게시글 제목이 수정되면 변경 전 제목과 변경 후 제목을 board_log 테이블에 저장
+
+delimiter //
+create trigger trg_board_after_update
+after update on board
+for each row
+begin
+	if old.title <> new.title then
+	insert into board_log(
+	board_id,
+	action_type,
+	old_title,
+	new_title,
+	log_message
+	)
+	values (
+	new.board_id,
+	'update',
+	old.title,
+	new.title,
+	'게시글 제목이 수정되었습니다.'
+	);
+	end if;
+
+end //
+delimiter ;
+
+update board
+set title = '새 제목'
+where board_id = 1;
+
+select * from board;
+select * from board_log;
+
+-- 게시글이 수정될때마다 board 테이블의 updated_at에 현재 시간을 자동 저장하는
+-- trg_board_before_update 만들기
