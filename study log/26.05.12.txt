@@ -1,0 +1,22 @@
+SQL 활용 능력 평가
+시간 : 10시 30분 ~ 12시 30분
+
+범위 
+DDL 테이블 만들기
+
+DML
+select
+insert
+update
+delete
+
+집계함수(sum,count,min,avg,max)
+>group by, having
+
+index
+
+subquery
+join
+view
+
+예외종류
