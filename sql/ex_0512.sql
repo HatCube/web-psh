@@ -149,12 +149,23 @@ call insert_member_exit();
 delimiter //
 create procedure find_product(in p_id int)
 begin
-	declare continue handler for 1062
+	declare v_name varchar(50);
+	declare v_price int;
+	
+	
+	declare continue handler for not found
 	begin
 		select '해당 상품이 없습니다.' as message;
 	end;
 	
-	select 
+	select product_name,price
+	into v_name,v_price
+	from product
+	where product_id = p_id;
 	
-	
-end
+	select v_name as product_name,v_price as price;
+end //
+delimiter ;
+
+call find_product(1);
+call find_product(999);
