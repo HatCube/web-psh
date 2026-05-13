@@ -76,22 +76,29 @@ public class MemberDAO {
    }
    //수정
    // 특정 사람의 나이를 수정하는 메서드 작성하기
-   public void updateMember() {
-	   String sql = "Insert into member(name,email,age) values(?,?,?)";
+   public void updateMember(int id,int age) {
+	   String sql = "update member set age = ? where id = ?";
 	   try(
 		       Connection conn = DBUtil.getConnection();
 		       PreparedStatement pstmt = conn.prepareStatement(sql);
 		            ) {
+		   pstmt.setInt(1, age);
+		   pstmt.setInt(2, id);
+		   
+		   int result = pstmt.executeUpdate();
+		   
+		   System.out.println(result + "행 수정 완료");
+		   
+		   
 	   } catch (Exception e) {
 	        e.printStackTrace();
 	      }
-	   
    }
    
    
    
    //삭제
-   public void deleteMember() {
+   public void deleteMember(int id) {
 	   
    }
    
