@@ -1,0 +1,23 @@
+stored program
+>MySQL에서 프로그래밍 적으로 동작하는 프로그램
+>프로시저 > 여러 SQL을 한번에 처리할 수 있는 함수
+>function > 값을 반환하는 함수
+>handler > 예외처리
+>cursor > 한 행 씩 데이터를 꺼내서 처리하는 문법
+>trigger > insert,update,delete문이 실행됬을때 이벤트의 처리
+
+java <> MySQL 연동
+
+Java 가 MySQL과 연결리 되려면 JDBC Driver가 필요하다.
+
+JDBC(Java Database Connectivity Driver)
+>Java 프로그램과 데이터베이스를 연결해주는 통로 역할을 한다.
+>Java와 DB를 연결
+>SQL을 전달하는 역할
+>결과를 받아오는 역할
+
+DBMS 회사마다 JDBC Driver가 다르다
+MySQL : MySQL-connector-j
+Oracle : ojdbc
+PostgreSQL : postgresql
+
