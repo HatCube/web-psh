@@ -99,7 +99,21 @@ public class MemberDAO {
    
    //삭제
    public void deleteMember(int id) {
-	   
+	   String sql = "delete from member where id = ?";
+	   try(
+		       Connection conn = DBUtil.getConnection();
+		       PreparedStatement pstmt = conn.prepareStatement(sql);
+		            ) {
+		   pstmt.setInt(1, id);
+		   
+		   int result = pstmt.executeUpdate();
+		   
+		   System.out.println(result + "행 삭제 완료");
+		   
+		   
+	   } catch (Exception e) {
+	        e.printStackTrace();
+	      }
    }
    
    

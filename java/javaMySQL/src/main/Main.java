@@ -10,10 +10,10 @@ public class Main {
 		
 		dao.findAll();
 		
-		//dao.insertMember(new MemberDTO("박민수","park@test.com",30));
+		dao.insertMember(new MemberDTO("박민수","park@test.com",30));
 		
 		dao.updateMember(1, 30);
 		
-		
+		dao.deleteMember(4);
 	}
 }
