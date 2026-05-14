@@ -1,3 +1,41 @@
+프론트엔드 <-> Java <-> MySQL
+
+도서 대서 서비스
+src
+ ├─ db
+ │   └─ DBUtil.java
+ │
+ ├─ dto
+ │   ├─ CustomerDTO.java
+ │   ├─ BookDTO.java
+ │   └─ RentalDTO.java
+ │
+ ├─ dao
+ │   ├─ CustomerDAO.java
+ │   ├─ BookDAO.java
+ │   └─ RentalDAO.java
+ │
+ └─ main
+     └─ Main.java
+
+1. MySQL 연동하기
+2. DB 연결 클래스 작성하기
+ㄴ db.DBUtil
+3. 각 테이블에서 넘어오거나, db로 데이터를 넘길 때 사용할 DTO 클래스 만들기
+ㄴ dto.CustomerDTO
+ㄴ dto.BookDTO
+ㄴ dto.RentalDTO
+4. 추가기능 구현하기
+ㄴ 회원 등록 기능 구현 : insertCustomer(CustomerDTO dto)
+ㄴ 도서 등록 기능 구현 : insertBook(BookDTO dto)
+5. 전체 도서 조회 기능 구현
+ㄴ findAllBooks()
+출력 예시:
+번호 : 1
+제목 : 자바의 정석
+저자 : 남궁성
+재고 : 5
+
 실습 시나리오
 
 한 학원에서 기존 수강 관리 시스템의 문제점을 해결하기 위해 새로운 시스템 구축 프로젝트를 진행하려고 한다.
