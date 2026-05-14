@@ -86,11 +86,10 @@ public class Main {
 				break;
 				
 			case 7:
-				//재고 부족 도서 조회
+				//재고부족 도서 조회
 				//재고가 2권 이하인 도서를 조회
-				//findLowStockBooks()
-//				bookDAO.findLowStockBooks();
-//				break;
+				bookDAO.findLowStockBooks();
+				break;
 				
 				
 			case 0:

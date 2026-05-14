@@ -1,34 +1,36 @@
 package dto;
 
 public class BookDTO {
-	private int id;
+
+	private int bookId;
 	private String title;
 	private String author;
 	private int stock;
 	
-	// 모든 필드를 매개변수로 갖는 생성자 만들기
+	public BookDTO() {
+		// TODO Auto-generated constructor stub
+	}
 	
-	public BookDTO(String title, String author,int stock) {
-		
+	public BookDTO(String title, String author, int stock) {
 		this.title = title;
 		this.author = author;
 		this.stock = stock;
 	}
 	
-	public BookDTO(int id,String title, String author,int stock) {
-		
-		this.id = id;
+
+	public BookDTO(int bookId, String title, String author, int stock) {
+		this.bookId = bookId;
 		this.title = title;
 		this.author = author;
 		this.stock = stock;
 	}
 
-	public int getId() {
-		return id;
+	public int getBookId() {
+		return bookId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
 	}
 
 	public String getTitle() {
@@ -54,6 +56,10 @@ public class BookDTO {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
+	
+	
+	
+
 	
 	
 }
