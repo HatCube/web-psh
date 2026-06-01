@@ -1,0 +1,96 @@
+1.논리데이터 저장소 확인
+
+2.물리 저장소 설계
+3.물리 데이터 저장소 구성
+4.데이터 조작 프로시저 작성하기
+
+정규화
+함수적 종속성을 해소해 이상현상을 없애는 것
+
+
+물리데이터 모델링라기 
+엔티티 >테이블
+속성 > 칼럼
+UID > 기본키(PK)로 변환
+관계 > 외래키(FK)
+컬럼의 타입과 길이를 정의
+반정규화 적용 여부 검토
+
+물리 데이터 저장소 구성
+>설계에 따라 데이터 저장소에 실제 데이터가 저장될 물리적 공간 구성
+
+테이블 제약조건 
+>테이블간 관계가 설정되었을 때 데이터가 잘못 저장되거나,관계가 깨지는 것을 막기위한 규칙
+
+파티션
+>하나의 큰 테이블을 내부적으로 여러 조각으로 나눠 저장하는 기술
+
+기본키 테이블의 데이터가 삭제 될 때
+기본키 테이블의 데이터가 수정 될 때 
+
+절차형 데이터 조작 프로시저 및 저장형 객체
+>여러 SQL과 조건문,반복문,예외처리를 하나의 프로그램처럼 저장하는 방식 
+>여러 작업을 순서대로 처리하는 경우가 많고 SQL한문장으로는 처리하기 어렵기 때문에 절차형 SQL을 사용
+
+Loop : 같은 작업을 반복할 때 사용
+v_name member.name%type; > member테이블의 name컬럼의 타입과 길이를 쓰겠다.
+
+stored function
+>값을 계산하고 결과값을 반환하기 위해 사용하는 함수
+
+stored procedure
+>function은 값을 반환하는데 초점이 있다면,procedure는 작업 수행에 초점이 있다.
+
+in 매개변수 > 외부에서 값을 받아오는 매개변수
+out 매개변수 > 외부로 값을 내보내는 매개변수
+inout 매개변수 > 값을 받아와서 처리한 다음에 내보내는 매개변수
+
+stored package
+>서로 관련있는 PL/SQL프로시저와 함수들의 집합
+>관련 기능을 하나의 폴더처럼 묶어놓는 객체
+
+패키지 선언부
+>외부에 공개할 프로시저,함수,변수등을 선언
+>패캐지에 포함될 요소를 미리 선언하는 부분
+
+패키지 본문
+>선언된 프로시저와 함수의 실제실행 내용을 작성
+>실제 코드
+
+CREATE OR REPLACE BODY member_pkg IS
+   PROCEDURE get_member(
+      p_number_id IN NUMBER
+   )
+   IS
+      v_name member.name%TYPE;
+   BEGIN
+      SELECT name
+      INTO v_name
+      FROM member
+      WHERE member_id = p_member_id;
+
+      DBMS_OUTPUT.PUT_LINE(v_name);
+
+   EXCEPTION
+      WHEN NO_DATA_FOUND THEN
+         RAISE e_not_found;
+      
+      WHEN e_not_found THEN
+         DBMS_OUTPUT.PUT_LINE('없다');
+   END get_member;
+
+   FUNCTION get_count
+   RETURN NUMBER
+   IS
+   BEGIN
+      SELECT COUN(*)
+      INTO v_ount -- 선언부쪽에 작성한 변수를 몸체쪽에서 사용
+      FROM member;
+
+      RETURN v_count;
+   END get_count;
+END member_pkg;
+
+트리거
+>insert,update,delete 문이 테이블에 대해 실행됬을때 자동으로 수행되는 프로시저
+
