@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <link rel='stylesheet' href='main.css'>
+</head>
+<body>
+    <header>
+        <!--일단은 처음에 가장 먼저 보이는 헤더 태그
+        nav에 있는 href들은 간단하면서도 유지보수가 쉽게 설계
+        -->
+        <h1>개인 블로그</h1>
+        <nav>
+            <!--href로 지정해둔 섹션으로 이동할 수 있는 내비게이터
+            확실히 이동이 빨라지니 효율이 높아진다 또한 유지보수의 이점도 늘어난다.
+            -->
+            <a href="#about">프로필 및 소개</a>
+            <a href="#posts">게시글 목록</a>
+            <a href="#contact">연락처</a>
+        </nav>
+    </header>
+    <main>
+        <!--메인에는 주요 소개 사항들을 서술한다.
+        내비게이터에 지정해둔 #태그들이 이곳에서 쓰인다.
+        -->
+        <section id = "about">
+            <h2>프로필 및 소개</h2>
+            <p>
+                게임이 취미인 사람의 개인 블로그, 이곳은 개인 일상을 적기 위한 블로그이다.
+            </p>
+        </section>
+        <section id = "posts">
+            <h2>게시글</h2>
+            <article>
+                <h3>게시 날짜 2026 - 06 - 15 17:22</h3>
+                <p>2번째 게시글이다. 무엇을 적어야할지 막막하다. 간단한 취미 이야기를 해볼까 한다.
+                    <br>
+                    집에서 고양이를 키우고 있다. 나이는 인간 기준으로 치면 고령에 속한다.
+                    <br><img src="./images/cat.jpg" alt = "고양이 예시 이미지" title = "인터넷에서 긁어온 고양이 이미지이다.">                    
+                </p>
+            </article>
+            <article>
+                <h3>게시 날짜 2026 - 06 15 17:18</h3>
+                <p>1번째 게시글이다.솔직히 기념비 적인지는 모르겠지만 그래도 개설은 축하해도 괜찮지 않을까 싶다.</p>
+            </article>
+        </section>
+        <section id = "contact">
+            <h2>연락처</h2>
+            <p>
+                휴대전화 : 010-1234-1234
+                <br>카카오톡 : ExampleID
+                <br>E-mail : ExampleEmail@Email.com
+            </p>
+        </section>
+        <!--aside는 참고 링크로 쓰는게 올바르다고 판단했다.
+        확실히 간편하게 정리가 가능하다보니 이점이 있는편.-->
+        <aside>
+            <h2>참고 링크</h2>
+            <p>주력 취미를 모아둔 곳의 정보이다.</p>
+            <ul>
+                <li><a href="https://namu.wiki/w/%EB%A0%88%EC%9D%B8%EB%B3%B4%EC%9A%B0%20%EC%8B%9D%EC%8A%A4%20%EC%8B%9C%EC%A6%88%20X">톰 클랜시의 레인보우 식스 시즈 X</a></li>
+                <li><a href="https://namu.wiki/w/%ED%86%B0%20%ED%81%B4%EB%9E%9C%EC%8B%9C%EC%9D%98%20%EB%94%94%EB%B9%84%EC%A0%84%202">톰 클랜시의 더 디비전 2</a></li>
+                <li><a href="https://namu.wiki/w/DJMAX%20RESPECT%20V">DJMAX RESPECT V</a></li>
+            </ul>
+        </aside>
+    </main>
+    <footer>
+        <!--footer에서는 원래라면 자기 이름만 서술하려 끝내려 했었다.
+        하지만 요즘 저작권을 의식해서 미리 출처를 남겨놔야 한다고 판단했다.
+        또한 학습한 내용 중 &를 이용한 이모지도 사용 해봐야 한다고 판단했던것도 한몫했다.-->
+        <small>&copy; 2026 HatCube All Right Reserved</small>
+    </footer>
+</body>
+</html>
