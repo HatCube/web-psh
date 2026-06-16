@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <link rel='stylesheet' href='main.css'>
+    <style>
+        /*p태그에 두께 : 1px 스타일 solid 색깔 black*/
+        p{
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+        }
+
+        /*배경 스타일 주기
+        background-color : 색상 지정, HEX값, RGB값 가능하다*/
+        .b1{background-color: gray;}
+
+        /*배경 이미지
+        background-image : url(경로)*/
+        .b2{
+            background-image: url(../26.06.15/img/cat.jpg);
+            background-repeat: repeat;
+        }
+        /*배경 이미지 위치
+        background-position : center, right, left, top, bottom*/
+        .b3{
+            background-image: url(../26.06.15/img/dog.jpg);
+            background-repeat: no-repeat;
+            background-position: right top;
+        }
+        /*배경 축약 속성
+        색상,이미지,반복,위치를 한번에 지정할 수 있다.*/
+        .b4{background: skyblue url(../26.06.15/img/cat.jpg) no-repeat center;}
+
+        /*그라데이션 주는 법*/
+        .d1{
+            width : 500px;
+            height: 500px;
+            background: linear-gradient(lightgreen,skyblue);
+        }
+        
+        .d2{
+            width : 500px;
+            height: 500px;
+            background: linear-gradient(45deg,lightgreen,skyblue);
+        }
+
+        .d3{
+            width : 500px;
+            height: 500px;
+            background: linear-gradient(to left,lightgreen,skyblue);
+        }
+    </style>
+</head>
+<body>
+    <p class = "b1">안녕하세요 반갑습니다 CSS 공부중입니다.</p>
+    <p class = "b2">안녕하세요 반갑습니다 CSS 공부중입니다.</p>
+    <p class = "b3">안녕하세요 반갑습니다 CSS 공부중입니다.</p>
+    <p class = "b4">안녕하세요 반갑습니다 CSS 공부중입니다.</p>
+
+    <div class = "d1"></div>
+    <div class = "d2"></div>
+    <div class = "d3"></div>
+</body>
+</html>
