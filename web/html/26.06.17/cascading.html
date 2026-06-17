@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <link rel='stylesheet' href='main.css'>
+
+    <style>
+        #special{
+            color : aqua;
+        }
+        
+        .text{
+            color : blue;
+        }
+
+        p{
+            color : red;
+        }
+
+        /*!important
+        CSS 우선순위를 강제로 가장 높게 만드는 키워드
+        남용하면 유지보수가 어려워진다.*/
+        p{
+            color : red !important;
+        }
+    </style>
+
+</head>
+<body>
+    <p class = "text" id = "special">이 문장은 어느 색으로 표현되나</p>
+</body>
+</html>
