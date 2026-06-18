@@ -4,247 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="box.css"/>
+    <link rel="stylesheet" href="box.css">
     <style>
-    /* flex
-    자식 요소를 내가 원하는 방향으로 정렬
-    다만 기본값이 왼쪽에서 오른쪽으로 배치 */
-    .flex{
-        display : flex;
-    }
+        section{
+            display:flex;
+        }
 
-    .row{
-        display : flex;
-        /* row가 기본값임 */
-        flex-direction: row;
-        border-bottom : 1px dashed gray;
-    }
+        .o1{
+            order : 1;
+        }
 
-    .rowReverse{
-        display : flex;
-        flex-direction: row-reverse;
-        border-bottom : 1px dashed gray;
-    }
+        .o2{
+            order : 2;
+        }
 
-    .column{
-        display : flex;
-        flex-direction:column;
-        border-bottom : 1px dashed gray;
-    }
+        .o3{
+            order: 3;
+        }
 
-    .columnReverse{
-        display : flex;
-        flex-direction:column-reverse;
-    }
+        .o4{
+            order : 4;
+        }
 
-    .wrap{
-        display:flex;
-        flex-wrap : wrap;
-    }
+        /* flex-grow
+        남는 여유 공간을 각 flex 아이템이 얼마나 더
+        차지할지 비율로 설정하는 속성
+        (기본값은 0이고, 숫자가 클수록 공간을 더 많이 가져간다)*/
 
-    .no-wrap{
-        display:flex;
-        flex-wrap:nowrap;
-    }
+        .box{
+            flex-grow : 0;
+        }
 
-    .wrap-reverse{
-        display:flex;
-        flex-wrap:wrap-reverse;
-    }
+        .f1{
+            flex-grow : 1;
+        }
 
-    .flex-start{
-        display:flex;
-        justify-content: flex-start;
-    }
+        .f2{
+            flex-grow : 2;
+        }
 
-    .flex-end{
-        display:flex;
-        justify-content: flex-end;
-    }
+        .f3{
+            flex-grow : 3;
+        }
 
-    .center{
-        display:flex;
-        justify-content: center;
-    }
+        .f4{
+            flex-grow : 4;
+        }
 
-    .space-between{
-        display:flex;
-        justify-content: space-between;
-    }
+        /* flex-shrink
+        item이 줄어들 때 축소비율을 결정하는것
+        숫자가 클수록 많이 줄어든다.
+        기본값은 1이고 음수는 무효 */
 
-    .space-around{
-        display:flex;
-        justify-content: space-around;
-    }
+        .box{
+            width: 400px;
+        }
 
-    .stretch{
-        display:flex;
-        align-items : stretch;
-    }
+        .s2{
+            flex-shrink: 1;
+        }
 
-    .ai-flex-start{
-        display:flex;
-        align-items: flex-start;
-    }
+        .s3{
+            flex-shrink: 2;
+        }
 
-    .ai-center{
-        display:flex;
-        flex-direction: column;
-        align-items: center;
-    }
+        .s4{flex-shrink: 3;}
 
-    .ai-flex-end{
-        display:flex;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-    
+        /* flex-basis
+        item의 각 너비 기본값을 지정한다. */
+
+        .b1{
+            flex-basis: 50px;
+        }
+
+        .b2{
+            flex-basis : 100px;
+        }
+
+        .b3{
+            flex-basis : 200px;
+        }
+
+        .b3{flex-basis : 300px;}
+
+        /* align-self
+        item을 교차축 방향으로 정렬한다.
+        align-item 속성보다 우선하여 개별 item을 정렬할 수 있다. */
+
+        section{
+            height : 300px;
+            align-items : center;
+        }
+
+        .a1{
+            align-self : flex-start;
+        }
+
+        .a2{
+            align-self : flex-end;
+        }
+
+        /* stretch는 높이를 지정하지 않아야 적용이 된다. */
+        .a3{align-self: stretch;}
+
+        
     </style>
 </head>
 <body>
-    <h2>display : flex;</h2>
-    <section class="flex">
-        <div class="box a">01</div>
-        <div class="box b">02</div>
-        <div class="box c">03</div>
+    <h2>기본 순서</h2>
+    <section>
+        <div class="box a">A</div>
+        <div class="box b">B</div>
+        <div class="box c">C</div>
+        <div class="box d">D</div>
     </section>
 
-    <h2> flex-direction</h2>
-    <section class="direction">
-        <div class="row">
-            <div class="box a">01</div>
-            <div class="box b">02</div>
-            <div class="box c">03</div>
-        </div>
-
-        <div class="rowReverse">
-            <div class="box a">01</div>
-            <div class="box b">02</div>
-            <div class="box c">03</div>
-        </div>
-
-        <div class="column">
-            <div class="box a">01</div>
-            <div class="box b">02</div>
-            <div class="box c">03</div>
-        </div>
-
-        <div class="columnReverse">
-            <div class="box a">01</div>
-            <div class="box b">02</div>
-            <div class="box c">03</div>
-        </div>
+    <h2>order를 통한 재배치</h2>
+    <section>
+        <div class="box a o2">A</div>
+        <div class="box b o4">B</div>
+        <div class="box c o1">C</div>
+        <div class="box d o3">D</div>
     </section>
 
-    <h2>flex-wrap</h2>
-    <section class="wrap">
-        <div class="box a">01</div>
-        <div class="box b">02</div>
-        <div class="box c">03</div>
-        <div class="box d">04</div>
-        <div class="box e">05</div>
-        <div class="box f">06</div>
+    <h2>flex-grow</h2>
+    <section>
+        <div class="box a f1">A</div>
+        <div class="box b f2">B</div>
+        <div class="box c f3">C</div>
+        <div class="box d f4">D</div>
     </section>
 
-    <section class="no-wrap">
-        <div class="box a">01</div>
-        <div class="box b">02</div>
-        <div class="box c">03</div>
-        <div class="box d">04</div>
-        <div class="box e">05</div>
-        <div class="box f">06</div>
+    <h2>flex-shink</h2>
+    <section>
+        <div class="box a s1">A</div>
+        <div class="box b s2">B</div>
+        <div class="box c s3">C</div>
+        <div class="box d s4">D</div>
     </section>
 
-    <section class="wrap-reverse">
-        <div class="box a">01</div>
-        <div class="box b">02</div>
-        <div class="box c">03</div>
-        <div class="box d">04</div>
-        <div class="box e">05</div>
-        <div class="box f">06</div>
+    <h2>flex-basis</h2>
+    <section>
+        <div class="box a b1">A</div>
+        <div class="box b b2">B</div>
+        <div class="box c b3">C</div>
+        <div class="box d b4">D</div>
     </section>
 
-    <h2>justify-content</h2>
-    <section class="flex-start">
-        <div class="box a">01</div>
-        <div class="box b">02</div>
-        <div class="box c">03</div>
-        <div class="box d">04</div>
-        <div class="box e">05</div>
-        <div class="box f">06</div>
-    </section>
-
-    <section class="flex-end">
-        <div class="box a">01</div>
-        <div class="box b">02</div>
-        <div class="box c">03</div>
-        <div class="box d">04</div>
-        <div class="box e">05</div>
-        <div class="box f">06</div>
-    </section>
-
-    <section class="center">
-        <div class="box a">01</div>
-        <div class="box b">02</div>
-        <div class="box c">03</div>
-        <div class="box d">04</div>
-        <div class="box e">05</div>
-        <div class="box f">06</div>
-    </section>
-
-    <section class="space-between">
-        <div class="box a">01</div>
-        <div class="box b">02</div>
-        <div class="box c">03</div>
-        <div class="box d">04</div>
-        <div class="box e">05</div>
-        <div class="box f">06</div>
-    </section>
-
-    <section class="space-around">
-        <div class="box a">01</div>
-        <div class="box b">02</div>
-        <div class="box c">03</div>
-        <div class="box d">04</div>
-        <div class="box e">05</div>
-        <div class="box f">06</div>
-    </section>
-
-    <h2>stretch</h2>
-    <section class="flex-demo stretch">
-        <div class="box a">01</div>
-        <div class="box b">02</div>
-        <div class="box c">03</div>
-        <div class="box d">04</div>
-        <div class="box e">05</div>
-        <div class="box f">06</div>
-    </section>
-
-    <section class="flex-demo ai-flex-start">
-        <div class="box a">01</div>
-        <div class="box b">02</div>
-        <div class="box c">03</div>
-        <div class="box d">04</div>
-        <div class="box e">05</div>
-        <div class="box f">06</div>
-    </section>
-
-    <section class="flex-demo ai-center">
-        <div class="box a">01</div>
-        <div class="box b">02</div>
-        <div class="box c">03</div>
-        <div class="box d">04</div>
-        <div class="box e">05</div>
-        <div class="box f">06</div>
-    </section>
-
-    <section class="flex-demo ai-flex-end">
-        <div class="box a">01</div>
-        <div class="box b">02</div>
-        <div class="box c">03</div>
-        <div class="box d">04</div>
-        <div class="box e">05</div>
-        <div class="box f">06</div>
+    <h2>align-self</h2>
+    <section>
+        <div class="box a a1">A</div>
+        <div class="box b a2">B</div>
+        <div class="box c a3">C</div>
+        <div class="box d a4">D</div>
     </section>
 </body>
 </html>
