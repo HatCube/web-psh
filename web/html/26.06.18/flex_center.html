@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <link rel='stylesheet' href='main.css'>
+    <style>
+        /*display 속성
+        해당 요소가 레이아웃에서 어떻게 동작할지 결정하는 속성
+        display : block > 요소를 블록 속성으로 만든다.
+        display : inline > 요소를 인라인으로 만든다.
+        display : inline-block > 줄 안에 배치되지만 width/height를 줄 수 있는 작은 박스 버튼처럼 쓸 수 있다.
+        display : flex > 안에 있는 자식들을 한줄에 정렬하거나 가운데 정렬 등 배치를 쉽게 조절할 수 있게 바꾼다.
+        display : grid > 가로 / 세로 격자 형태 레이아웃을 만들 수 있는 모드
+        */
+        .box{
+            background-color: #74b9ff;
+            color : white;
+            padding : 10px;
+            margin : 5px;
+            border-radius: 6px;
+        }
+
+        .block{
+            display : block;
+            width : 60px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- flexbox를 이용한 중앙 정렬
+     flexbox : 요소들을 한 줄 또는 여러 줄로 자연스럽게 배치하고 정렬하고 간격을 조절하기 위한 레이아웃 시스템이다.-->
+    <h3>display : block;</h3>
+    <span class = "box block">박스1</span>
+    <span class = "box block">박스2</span>
+</body>
+</html>
