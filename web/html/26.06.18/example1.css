@@ -19,3 +19,36 @@ a{
     text-decoration: none;
     color : white
 }
+
+h2{margin-bottom: 0px;}
+
+main{
+    background-color : #eceff1;
+    display: flex;
+    gap : 10px;
+    align-items: center;
+}
+#main{
+    height : 150px;
+    background-color: white;
+    border-radius: 12px;
+    flex : 70%;
+    margin : 15px;
+    }
+
+    #aside{
+        height: 150px;
+    background-color: #dee6e9;
+    border-radius: 12px;
+    flex : 30%;
+    margin : 15px;
+    }
+
+footer{
+    background-color: #5f7182;
+    padding: 5px;
+}
+
+p.footer{color : white}
+p.desc{margin : 0px;}
+/* *{border : 1px solid black} */
