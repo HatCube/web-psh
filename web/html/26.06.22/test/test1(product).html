@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <link rel='stylesheet' href='main.css'>
+</head>
+
+<style>
+    *{
+        margin : 0;
+        padding : 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        background-color: #f5f6f8;
+        padding : 10px 0px;
+    }
+
+    h1{
+        padding-left : 10px;
+    }
+
+    .container{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap : 20px;
+        padding : 10px;
+    }
+
+    h2{
+        padding : 10px 1px;
+    }
+
+    .product{
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border : 1px solid #ddd;
+        border-radius: 10px;
+        padding : 20px;
+    }
+
+    p{
+        padding : 10px 1px;
+    }
+
+    .price{
+        font-size: 18px;
+        font-weight: bold;
+        margin : 10px 0;
+    }
+
+    button{
+        padding : 10px 100px;
+        background-color: black;
+        color : white;
+        border-radius: 10px;
+    }
+    
+
+</style>
+<body>
+    <h1>오늘의 추천 상품</h1>
+    <div class = "container">
+        <div class = "product">
+            <h2>무선 마우스</h2>
+            <p>가볍고 조용한 사무용 마우스</p>
+            <p class = "price">29,000원</p>
+            <button type="button">장바구니</button>
+        </div>
+
+        <div class = "product">
+            <h2>기계식 키보드</h2>
+            <p>타건감이 좋은 입문용 키보드</p>
+            <p class = "price">79,000원</p>
+            <button type="button">장바구니</button>
+        </div>
+
+        <div class = "product">
+            <h2>노트북 거치대</h2>
+            <p>자세 교정에 좋은 알루미늄 거치대</p>
+            <p class = "price">35,000원</p>
+            <button type="button">장바구니</button>
+        </div>
+
+        <div class = "product">
+            <h2>USB 허브</h2>
+            <p>노트북 확장에 필요한 5포트 허브</p>
+            <p class = "price">22,000원</p>
+            <button type="button">장바구니</button>
+        </div>
+
+        <div class = "product">
+            <h2>웹캠</h2>
+            <p>온라인 수업과 회의에 적합한 웹캠</p>
+            <p class = "price">45,000원</p>
+            <button type="button">장바구니</button>
+        </div>
+
+        <div class = "product">
+            <h2>모니터 받침대</h2>
+            <p>책상을 깔끔하게 정리할 수 있는 받침대</p>
+            <p class = "price">18,000원</p>
+            <button type="button">장바구니</button>
+        </div>
+    </div>
+</body>
+</html>

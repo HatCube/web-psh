@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <link rel='stylesheet' href='main.css'>
+</head>
+
+<style>
+    *{
+        margin : 0;
+        padding : 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        background-color: #f5f6f8;
+        padding : 10px 50px;
+    }
+
+    h1{
+        padding-left : 10px;
+    }
+
+    .container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap : 20px;
+        padding : 10px;
+    }
+
+    h2{
+        padding : 10px 1px;
+    }
+
+    .obj{
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border : 1px solid #eee;
+        border-radius: 10px;
+        padding : 20px;
+    }
+
+    p{
+        font-family: sans-serif;
+        padding : 10px 1px;
+        font-weight: 700;
+        color : #333;
+    }
+
+    .bold{
+        font-size: 36px;
+        font-weight: 700;
+    }
+    
+</style>
+<body>
+    <h1>관리자 대시보드</h1>
+    <div class = "container">
+        <div class = "obj">
+           <p>전체 수강생</p>
+            <p class = "bold">128명</p>
+        </div>
+
+        <div class = "obj">
+            <p>오늘 출석률</p>
+            <p class = "bold">92%</p>
+        </div>
+
+        <div class = "obj">
+            <p>미납 수강생</p>
+            <p class = "bold">7명</p>
+            
+        </div>
+
+        <div class = "obj">
+           <p>상담 예약</p>
+            <p class = "bold">12건</p>
+        </div>
+    </div>
+</body>
+</html>
