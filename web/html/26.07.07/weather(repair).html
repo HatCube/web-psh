@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <link rel='stylesheet' href='main.css'>
+</head>
+
+<body>
+
+    <div class = main>
+        <h1>도시 날씨 조회</h1>
+
+        상태 : <span id = "status"></span>
+        <span id = "msg"></span>
+        
+    </div>
+
+    <div class = "result-box" id = "resultBox">
+        <div id = "resultcity">
+            위도 : <span id = "citylat"></span>
+            경도 : <span id = "citylong"></span>
+        </div>
+
+        <div id = "resulttemp">
+            온도 : <span id = "temp"></span>
+        </div>
+
+        <div id = "resultwind">
+            풍속 : <span id = "wind"></span>
+        </div>
+
+        <div id = "resultcode">
+            도시코드 : <span id = "code"></span>
+        </div>
+
+        <div id = "resulttime">
+            업데이트시각 : <span id = "uptime"></span>
+        </div>
+        <div id = "developeConsole">
+            <br><br>개발자 콘솔 : <span id = "dataBox"></span>
+        </div>
+    </div>
+
+
+
+    <script>
+        
+        const cities = [
+            { name: "서울", lat: 37.5665, lon: 126.9780 },
+            { name: "부산", lat: 35.1796, lon: 129.0756 },
+            { name: "제주", lat: 33.4996, lon: 126.5312 },
+            { name: "도쿄", lat: 35.6762, lon: 139.6503 },
+            { name: "뉴욕", lat: 40.7128, lon: -74.0060 }
+        ];
+
+        let btn = document.getElementById("button");
+        let statusBox = document.getElementById("status");
+        let resultBox = document.getElementById("resultBox");
+        let msg = document.getElementById("msg");
+        let dataBox = document.getElementById("dataBox");
+        
+        let resultcitylat = document.getElementById("citylat");
+        let resultcitylong = document.getElementById("citylong");
+        let resulttemp = document.getElementById("temp");
+        let resultwind = document.getElementById("wind");
+        let resultcode = document.getElementById("code");
+        let resulttime = document.getElementById("uptime");
+        
+
+        let weatherdata = null;
+
+        const cityselect = document.getElementById("cities");
+        
+        const validcity = () => {
+            const selectedvalue = cityselect.value;
+
+            if(selectedvalue == ""){
+                msg.innerText = "도시를 선택하세요";
+            }
+
+            const findcity = cities.find(item => {
+                return item.name === selectedvalue;
+            })
+
+            if(!city){
+                msg.innerText = "존재하지 않는 도시입니다."
+                return false;
+            }
+        }
+
+        async function weather() {
+            await fetch("https://api.open-meteo.com/v1/forecast?latitude=37.5454970716454&longitude=126.673620194317&current_weather=true")
+            .then(res => {
+                if(!res.ok){
+                    throw new Error("API 요청 실패");
+                }
+
+                return res.json();
+            })
+            .then(data => {
+                
+                weatherdata = data;
+                console.log(weatherdata);
+                dataBox.innerText = JSON.stringify(weatherdata);
+                statusBox.innerText = "날씨 정보를 불러오는데 성공했습니다.";
+
+
+                resultcitylat.innerText = JSON.stringify(weatherdata.latitude);
+                resultcitylong.innerText = JSON.stringify(weatherdata.longitude);
+                resulttemp.innerText = JSON.stringify(weatherdata.current_weather.temperature);
+                resultwind.innerText = JSON.stringify(weatherdata.current_weather.windspeed);
+                resultcode.innerText = JSON.stringify(weatherdata.current_weather.weathercode);
+                resulttime.innerText = JSON.stringify(weatherdata.current_weather.time);
+
+            })
+
+            .catch(error => {
+                console.log(error);
+                statusBox.innerText = "날씨 정보를 불러오는데 실패했습니다";
+            })
+
+            
+        }
+
+        weather();
+    </script>
+</body>
+
+</html>
