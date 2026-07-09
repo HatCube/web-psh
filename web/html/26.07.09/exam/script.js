@@ -21,7 +21,7 @@ function loadProducts() {
             <img src="${product.thumbnail}" alt="${product.title}"> 
             <p><strong>${product.title}</strong></p> 
             <p><strong>카테고리 : </strong>${product.category}</p> 
-            <p><strong>가격 : </strong>$${product.price}</p> 
+            <p><strong>가격 : </strong>${product.price}</p> 
             <p><strong>할인율 : </strong>${product.discountPercentage}%</p> 
             <p><strong>평점 : </strong>${product.rating}</p> 
             <p><strong>재고 : </strong>${product.stock}개</p> 
