@@ -11,22 +11,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ComputerTest {
 
-	private final Computer laptop;
-	
-	public ComputerTest(@Qualifier("labtop") Computer laptop) {
-		this.laptop = laptop;
-	}
-	
-	@Test
-	public void computerTest() {
-		log.info(laptop.getScreenWidth()+"");
-	}
-	
-	
-	
-	
-	
-	
-	
-	
+   private final Computer laptop;
+   
+   public ComputerTest(@Qualifier("labtop") Computer laptop) {
+      this.laptop = laptop;
+   }
+   
+   @Test
+   public void computerTest() {
+      log.info(laptop.getScreenWidth()+"");
+   }
+   
 }
