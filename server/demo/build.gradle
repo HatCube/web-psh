@@ -24,6 +24,8 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	// Source: https://mvnrepository.com/artifact/com.google.guava/guava
 	implementation 'com.google.guava:guava:31.1-jre'
+	// Source: https://mvnrepository.com/artifact/org.projectlombok/lombok
+	implementation 'org.projectlombok:lombok:1.18.44'
 }
 
 tasks.named('test') {
