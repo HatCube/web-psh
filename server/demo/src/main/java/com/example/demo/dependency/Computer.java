@@ -7,6 +7,7 @@ import lombok.Data;
 @Component
 @Data
 public class Computer {
-
+	
 	int ram;
+	
 }

@@ -23,3 +23,12 @@ public class ComputerTest {
 		log.info(coding.getComputer().toString());
 	}
 }
+
+
+
+
+
+
+
+
+

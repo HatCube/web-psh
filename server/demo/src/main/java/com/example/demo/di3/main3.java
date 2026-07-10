@@ -72,7 +72,7 @@ class AppContext{
 	}
 }
 
-public class main3 {
+public class Main3 {
 	public static void main(String[] args) {
 		AppContext ac = new AppContext();
 		
@@ -80,3 +80,13 @@ public class main3 {
 //		System.out.println(car);
 	}
 }
+
+
+
+
+
+
+
+
+
+

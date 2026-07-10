@@ -8,7 +8,7 @@ class SportCar extends Car{};
 class Truck extends Car{};
 class Engine{};
 
-public class main1 {
+public class Main1 {
 	public static void main(String[] args) throws Exception {
 		//객체가 필요하다(필드, 메서드를 사용하기 위해서)
 		//SportCar car = new SportCar();
@@ -42,3 +42,10 @@ public class main1 {
 		return clazz.newInstance(); //객체를 생성해서 반환
 	}
 }
+
+
+
+
+
+
+

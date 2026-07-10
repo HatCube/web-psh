@@ -47,7 +47,7 @@ class AppContext{
 	}
 }
 
-public class main2 {
+public class Main2 {
 	public static void main(String[] args) {
 		AppContext ac = new AppContext();
 		
@@ -55,3 +55,11 @@ public class main2 {
 		Engine engine = (Engine)ac.getBean("engine");
 	}
 }
+
+
+
+
+
+
+
+

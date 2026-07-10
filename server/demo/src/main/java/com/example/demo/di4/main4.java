@@ -124,7 +124,7 @@ class AppContext{
 
 
 
-public class main4 {
+public class Main4 {
 	public static void main(String[] args) {
 		//@Component가 붙은 클래스를 객체를 만들어서 컨테이너에 담는다.
 		AppContext ac = new AppContext();
@@ -140,3 +140,11 @@ public class main4 {
 		//System.out.println(car);
 	}
 }
+
+
+
+
+
+
+
+
