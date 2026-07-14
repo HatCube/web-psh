@@ -1,4 +1,4 @@
-package com.korea.Architecture.di;
+package com.korea.architecture.di;
 
 import org.springframework.stereotype.Component;
 

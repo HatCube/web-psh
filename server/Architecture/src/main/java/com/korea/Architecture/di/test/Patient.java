@@ -1,16 +1,16 @@
-package com.korea.Architecture.di.test;
+package com.korea.architecture.di.test;
 
 import org.springframework.stereotype.Component;
 
 import lombok.Getter;
 
-@Getter
 @Component
+@Getter
 public class Patient {
+
 	private String name = "홍길동";
 	
 	public void checkInformation() {
-		System.out.printf("환자 %s의 정보를 확인합니다.\n",name);
+		System.out.println("환자"+name+"의 정보를 확인합니다.");
 	}
-
 }

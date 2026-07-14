@@ -1,4 +1,4 @@
-package com.korea.Architecture;
+package com.korea.architecture;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.korea.Architecture;
+package com.korea.architecture;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
