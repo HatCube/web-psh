@@ -20,27 +20,19 @@ import com.korea.todo.entity.TodoEntity;
 //ID : 엔티티 클래스의 기본 키 타입을 의미한다.
 public interface TodoRepository extends JpaRepository<TodoEntity, Long>{
 
-	//주요 메서드
-	//save(S entity) : 엔티티를 데이터베이스에 저장하거나 업데이트한다.
-	//findById(ID id) : 기본키를 이용하여 엔티티를 조회한다.
-	//findAll() : 데이터베이스의 모든 엔티티를 조회한다.
-	//deleteById(ID id) : 기본 키를 이용하여 엔티티를 삭제한다.
+//주요 메서드
+//save(S entity) : 엔티티를 데이터베이스에 저장하거나 업데이트한다.
+//findById(ID id) : 기본키를 이용하여 엔티티를 조회한다.
+//findAll() : 데이터베이스의 모든 엔티티를 조회한다.
+//deleteById(ID id) : 기본 키를 이용하여 엔티티를 삭제한다.
+
+
+// ?뒤에 1은 메서드의 첫번째 매개변수를 사용하겠다는 의미
+
+
+//SELECT * FROM todo where userid = ?1
+//	@Query("Select t from TodoEntity t WHERE t.userId = ?1")
+//	List<TodoEntity> findByUserIdQuery(Long userId);
 	
-	
-	// ?뒤에 1은 메서드의 첫번째 매개변수를 사용하겠다는 의미
-	
-	
-	//SELECT * FROM todo where userid = ?1
-	@Query("Select t from TodoEntity t WHERE t.userId = ?1")
-	List<TodoEntity> findByUserIdQuery(Long userId);
+	List<TodoEntity> findByUserId(String userId);
 }
-
-
-
-
-
-
-
-
-
-
