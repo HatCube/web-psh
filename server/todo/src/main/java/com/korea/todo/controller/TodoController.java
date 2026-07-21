@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,30 +26,30 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("todo")
 public class TodoController {
 
-//TodoService를 필드로 갖고 객체를 생성자 주입을 한다.
-private final TodoService todoService;
-
-//생성자 주입
+	//TodoService를 필드로 갖고 객체를 생성자 주입을 한다.
+	private final TodoService todoService;
+	
+	//생성자 주입
 //	public TodoController(TodoService todoService) {
 //		this.todoService = todoService;
 //	}
-
-// /test 로 요청이 들어오면 testTodo라는 메서드가 실행되고
-//서비스의 메서드를 실행하여 응답으로 반환한다.
-//ResponseEntity : HTTP 응답 전체를 표현하는 객체
-@GetMapping("/test")
-public ResponseEntity<?> testTodo() {
-String str = todoService.testService();
-List<String> list = new ArrayList<>();
-list.add(str);
-ResponseDTO<String> response = ResponseDTO.<String>builder().data(list).build();
-//ok() -> 상태를 강제로 200으로 설정한다.
-//body() -> 응답본문에 response 객체를 넣는다.
-//완성된 HTTP응답을 클라이언트에게 전송한다.
-return ResponseEntity.ok().body(response);
-
-//Controller -> Service -> ResponseDTO -> ResponseEntity -> JSON
-}
+	
+	// /test 로 요청이 들어오면 testTodo라는 메서드가 실행되고
+	//서비스의 메서드를 실행하여 응답으로 반환한다.
+	//ResponseEntity : HTTP 응답 전체를 표현하는 객체
+	@GetMapping("/test")
+	public ResponseEntity<?> testTodo() {
+		String str = todoService.testService();
+		List<String> list = new ArrayList<>();
+		list.add(str);
+		ResponseDTO<String> response = ResponseDTO.<String>builder().data(list).build();
+		//ok() -> 상태를 강제로 200으로 설정한다.
+		//body() -> 응답본문에 response 객체를 넣는다.
+		//완성된 HTTP응답을 클라이언트에게 전송한다.
+		return ResponseEntity.ok().body(response);
+		
+		//Controller -> Service -> ResponseDTO -> ResponseEntity -> JSON
+	}
 	
 	//요청 -> (DTO -> Entity) TodoController -> TodoService
 	//추가하기 위해 데이터가 넘어왔다.
@@ -57,14 +58,13 @@ return ResponseEntity.ok().body(response);
 	//비즈니스 로직을 실행하고 난 결과를 받아온다.
 	//응답으로 내보낸다.
 	@PostMapping
-	public ResponseEntity<?> createTodo(@RequestBody TodoDTO dto){
+	public ResponseEntity<?> createTodo(@AuthenticationPrincipal String userId, @RequestBody TodoDTO dto){
 		try {
-			String temporaryUserId = "temporary-user"; //임시 유저 아이디
 			
 			//dto -> entity
 			TodoEntity entity = TodoDTO.toEntity(dto);
 			
-			entity.setUserId(temporaryUserId);
+			entity.setUserId(userId);
 			
 			//서비스레이어의 create 메서드를 호출하여, TodoEntity를 데이터베이스 저장
 			List<TodoEntity> entities = todoService.create(entity);
@@ -92,10 +92,10 @@ return ResponseEntity.ok().body(response);
 	
 	//전체조회 기능
 	@GetMapping
-	public ResponseEntity<?> retrieveTodoList(){
-		String temporaryUserId = "temporary-user"; //임시 유저 아이디
+	public ResponseEntity<?> retrieveTodoList(@AuthenticationPrincipal String userId){
+		//String temporaryUserId = "temporary-user"; //임시 유저 아이디
 		
-		List<TodoEntity> entities = todoService.retrieve(temporaryUserId);
+		List<TodoEntity> entities = todoService.retrieve(userId);
 		
 		//List에 들어있는 데이터를 TodoDTO타입으로 바꾸고 ResponseDTO에 넣어서 응답으로 내보내기
 		//자바 스트림을 이용해 반환된 엔티티 리스트를 TodoDTO타입의 리스트로 변환
@@ -111,12 +111,11 @@ return ResponseEntity.ok().body(response);
 	//findById(), save()를 활용하기
 	//메서드명 updateTodo
 	@PutMapping
-	public ResponseEntity<?> updateTodo(@RequestBody TodoDTO dto){
-		String temporarayUserId = "temporary-user";
+	public ResponseEntity<?> updateTodo(@AuthenticationPrincipal String userId, @RequestBody TodoDTO dto){
 		
 		TodoEntity entity = TodoDTO.toEntity(dto);
 		
-		entity.setUserId(temporarayUserId);
+		entity.setUserId(userId);
 		
 		List<TodoEntity> entities = todoService.update(entity);
 		
@@ -133,13 +132,12 @@ return ResponseEntity.ok().body(response);
 	
 	//삭제하기
 	@DeleteMapping
-	public ResponseEntity<?> deleteTodo(@RequestBody TodoDTO dto){
+	public ResponseEntity<?> deleteTodo(@AuthenticationPrincipal String userId, @RequestBody TodoDTO dto){
 		try {
-			String temporaryUserId = "temporary-user"; //임시 유저 아이디
 			
 			TodoEntity entity = TodoDTO.toEntity(dto);
 			
-			entity.setUserId(temporaryUserId);
+			entity.setUserId(userId);
 			
 			List<TodoEntity> entities = todoService.delete(entity);
 			
