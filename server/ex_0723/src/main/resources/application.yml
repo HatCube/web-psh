@@ -11,6 +11,6 @@ spring:
 mybatis:
   #SQL이 작성된 파일의 위치 classpath -> src/main/resources
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.korea.ex_0722.vo
+  type-aliases-package: com.korea.ex_0723.vo
   configuration: 
     map-underscore-to-camel-case: true
