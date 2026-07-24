@@ -1,0 +1,23 @@
+서버 프로그램 구현 능력평가 : 7월 27일
+범위 : maven, mybatis, vo, dao, mapper, service, controller, postman,xml
+자주 하는 실수 : 서버 안켜놓고 테스트하기
+에러 났을 때 디버깅을 잘하자
+
+400(Bad Request) : 요청이 잘못된 것 > 같이 전달하는 데이터에서 잘못된게 없는지 or 의도와 다르게 Java코드가 작성된 경우
+
+404(Not Found) : 경로를 찾지 못함 > 요청 주소를 확인
+
+500 : 서버쪽에서 발생한 에러 > 구조를 점검(controller > mapper)
+
+프로젝트 생성(의존성 필요한거 다 주입)
+spring web
+lombok
+mybatis
+mysql connector
+dev tools
+
+데이터베이스 생성
+테이블 생성
+프로젝트import
+구조(vo,dao,service,controller,mapper)
+기능구현하기(추가,수정,삭제,조회,조건부조회...)
