@@ -6,7 +6,7 @@ spring:
     url: jdbc:mysql://localhost:3306/productdb
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: 11111111
+    password: admin1234
 
 mybatis:
   #SQL이 작성된 파일의 위치 classpath -> src/main/resources
